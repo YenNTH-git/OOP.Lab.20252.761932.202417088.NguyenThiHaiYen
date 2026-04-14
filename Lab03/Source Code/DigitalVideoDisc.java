@@ -18,6 +18,11 @@ public class DigitalVideoDisc {
     public float getCost() { return cost; }
     public int getId() { return id; }
 
+    //Setter
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     // Constructor 1
     public DigitalVideoDisc(String title) {
         this.title = title;
