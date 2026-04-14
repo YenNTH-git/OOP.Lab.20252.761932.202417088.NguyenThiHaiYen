@@ -7,30 +7,23 @@ public class DigitalVideoDisc {
     private int length;
     private float cost;
 
-    // Getters
-    public String getTitle() {
-        return title;
-    }
-    public String getCategory() {
-        return category;
-    }
-    public String getDirector() {
-        return director;
-    }
-    public int getLength() {
-        return length;
-    }
-    public float getCost() {
-        return cost;
-    }
+    // Classifier member
+    private static int nbDigitalVideoDiscs = 0;
+
+    // Instance member
+    private int id;
+
+    // Getter
+    public String getTitle() { return title; }
+    public float getCost() { return cost; }
+    public int getId() { return id; }
 
     // Constructor 1
     public DigitalVideoDisc(String title) {
         this.title = title;
-        this.category = "";
-        this.director = "";
-        this.length = 0;
-        this.cost = 0.0f;
+
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     // Constructor 2
@@ -51,4 +44,21 @@ public class DigitalVideoDisc {
         this(title, category, director, cost);
         this.length = length;
     }
+
+    // Override toString
+    @Override
+    public String toString() {
+        return "DVD - " + title + " - " + category + " - "
+                + director + " - " + length + ": " + cost + " $";
+    }
+
+    // Match title (phục vụ search)
+    public boolean isMatch(String title) {
+        return this.title.toLowerCase().contains(title.toLowerCase());
+    }
+
+    /*
+    public String getCategory() { return category; }
+    public String getDirector() { return director; }
+    */
 }
