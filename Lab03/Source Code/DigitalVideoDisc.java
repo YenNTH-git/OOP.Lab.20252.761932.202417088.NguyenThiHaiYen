@@ -7,7 +7,7 @@ public class DigitalVideoDisc {
     private int length;
     private float cost;
 
-    // Classifier member
+    // Class member (static)
     private static int nbDigitalVideoDiscs = 0;
 
     // Instance member
@@ -17,6 +17,11 @@ public class DigitalVideoDisc {
     public String getTitle() { return title; }
     public float getCost() { return cost; }
     public int getId() { return id; }
+
+    // Setter (dùng cho bài passing parameter)
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     // Constructor 1
     public DigitalVideoDisc(String title) {
@@ -45,20 +50,15 @@ public class DigitalVideoDisc {
         this.length = length;
     }
 
-    // Override toString
+    // Override toString (dùng cho printCart)
     @Override
     public String toString() {
         return "DVD - " + title + " - " + category + " - "
                 + director + " - " + length + ": " + cost + " $";
     }
 
-    // Match title (phục vụ search)
+    // Match title (search)
     public boolean isMatch(String title) {
         return this.title.toLowerCase().contains(title.toLowerCase());
     }
-
-    /*
-    public String getCategory() { return category; }
-    public String getDirector() { return director; }
-    */
 }
