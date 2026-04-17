@@ -6,7 +6,7 @@ public class Cart {
     private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
     private int qtyOrdered = 0;
 
-    // Add 1 DVD
+    // ===== ADD =====
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (qtyOrdered < MAX_NUMBERS_ORDERED) {
             itemsOrdered[qtyOrdered++] = disc;
@@ -29,16 +29,14 @@ public class Cart {
         }
     }
 
-    /*
     // Overloading: VARARGS
     public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
         for (DigitalVideoDisc dvd : dvds) {
             addDigitalVideoDisc(dvd);
         }
     }
-    */
 
-    // Remove DVD
+    // ===== REMOVE =====
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i] == disc) {
@@ -55,7 +53,7 @@ public class Cart {
         System.out.println("The disc was not found");
     }
 
-    // Total cost
+    // ===== TOTAL COST =====
     public float totalCost() {
         float total = 0;
         for (int i = 0; i < qtyOrdered; i++) {
@@ -64,7 +62,7 @@ public class Cart {
         return total;
     }
 
-    // Print cart
+    // ===== PRINT CART (CHUẨN 100%) =====
     public void printCart() {
         System.out.println("***CART***");
         System.out.println("Ordered Items:");
@@ -77,7 +75,7 @@ public class Cart {
         System.out.println("***");
     }
 
-    // Search by ID
+    // ===== SEARCH BY ID =====
     public void searchById(int id) {
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i].getId() == id) {
@@ -88,14 +86,19 @@ public class Cart {
         System.out.println("Not found");
     }
 
-    // Search by title
+    // ===== SEARCH BY TITLE =====
     public void searchByTitle(String title) {
+        boolean found = false;
+
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i].isMatch(title)) {
                 System.out.println(itemsOrdered[i]);
-                return;
+                found = true;
             }
         }
-        System.out.println("Not found");
+
+        if (!found) {
+            System.out.println("Not found");
+        }
     }
 }
