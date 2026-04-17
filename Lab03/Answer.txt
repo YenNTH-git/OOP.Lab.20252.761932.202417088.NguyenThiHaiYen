@@ -1,9 +1,23 @@
-Question: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
 
-Java không cho phép tạo hai constructor như trên.
-Mặc dù tên tham số khác nhau (title và category), nhưng cả hai constructor đều có cùng chữ ký vì đều nhận một tham số kiểu String. Trong Java, chữ ký của phương thức được xác định bởi tên phương thức và số lượng, kiểu dữ liệu của tham số, không phụ thuộc vào tên biến.
-Do đó, hai constructor sau được xem là trùng nhau:
-	public DigitalVideoDisc(String title)
-	public DigitalVideoDisc(String category)
-Vì vậy, chương trình sẽ bị lỗi biên dịch do định nghĩa constructor bị trùng.
-Để khắc phục, các constructor phải khác nhau về số lượng hoặc kiểu dữ liệu của tham số.
+Java là ngôn ngữ truyền tham trị (pass by value).
+Khi gọi phương thức, giá trị của tham số được sao chép và truyền vào hàm. Đối với object, giá trị được truyền là bản sao của reference (tham chiếu), không phải chính object.
+Ví dụ:
+public static void swap(Object o1, Object o2) {
+    Object tmp = o1;
+    o1 = o2;
+    o2 = tmp;
+}
+Gọi swap(jungleDVD, cinderellaDVD); không làm thay đổi hai object.
+Vì phương thức chỉ hoán đổi bản sao của reference, nên không ảnh hưởng đến biến bên ngoài.
+
+public static void changeTitle(DigitalVideoDisc dvd, String title) {
+    String oldTitle = dvd.getTitle();
+    dvd.setTitle(title);
+    dvd = new DigitalVideoDisc(oldTitle);
+}
+Gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()); thì title của jungleDVD bị thay đổi.
+Vì:
+dvd vẫn trỏ tới cùng object với jungleDVD
+setTitle() thay đổi trực tiếp dữ liệu của object
+Lệnh dvd = new DigitalVideoDisc(...) chỉ thay đổi biến cục bộ, không ảnh hưởng bên ngoài
