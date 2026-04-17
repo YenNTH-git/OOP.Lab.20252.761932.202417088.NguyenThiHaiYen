@@ -1,0 +1,1391 @@
+Index: Source Code/DigitalVideoDisc.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Aims_Project;\r\n\r\npublic class DigitalVideoDisc {\r\n    private String title;\r\n    private String category;\r\n    private String director;\r\n    private int length;\r\n    private float cost;\r\n\r\n    // Class member (static)\r\n    private static int nbDigitalVideoDiscs = 0;\r\n\r\n    // Instance member\r\n    private int id;\r\n\r\n    // Getter\r\n    public String getTitle() { return title; }\r\n    public float getCost() { return cost; }\r\n    public int getId() { return id; }\r\n\r\n<<<<<<< HEAD\r\n    //Setter\r\n=======\r\n    // Setter (dùng cho bài passing parameter)\r\n>>>>>>> topic/class-members\r\n    public void setTitle(String title) {\r\n        this.title = title;\r\n    }\r\n\r\n    // Constructor 1\r\n    public DigitalVideoDisc(String title) {\r\n        this.title = title;\r\n\r\n        nbDigitalVideoDiscs++;\r\n        this.id = nbDigitalVideoDiscs;\r\n    }\r\n\r\n    // Constructor 2\r\n    public DigitalVideoDisc(String title, String category, float cost) {\r\n        this(title);\r\n        this.category = category;\r\n        this.cost = cost;\r\n    }\r\n\r\n    // Constructor 3\r\n    public DigitalVideoDisc(String title, String category, String director, float cost) {\r\n        this(title, category, cost);\r\n        this.director = director;\r\n    }\r\n\r\n    // Constructor 4\r\n    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {\r\n        this(title, category, director, cost);\r\n        this.length = length;\r\n    }\r\n\r\n    // Override toString (dùng cho printCart)\r\n    @Override\r\n    public String toString() {\r\n        return \"DVD - \" + title + \" - \" + category + \" - \"\r\n                + director + \" - \" + length + \": \" + cost + \" $\";\r\n    }\r\n\r\n    // Match title (search)\r\n    public boolean isMatch(String title) {\r\n        return this.title.toLowerCase().contains(title.toLowerCase());\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Source Code/DigitalVideoDisc.java b/Source Code/DigitalVideoDisc.java
+--- a/Source Code/DigitalVideoDisc.java	(revision 5c0ff7e75e01001435c0a2a6f690c96799957c3a)
++++ b/Source Code/DigitalVideoDisc.java	(date 1776389519701)
+@@ -7,7 +7,7 @@
+     private int length;
+     private float cost;
+ 
+-    // Class member (static)
++    // Classifier member
+     private static int nbDigitalVideoDiscs = 0;
+ 
+     // Instance member
+@@ -18,15 +18,6 @@
+     public float getCost() { return cost; }
+     public int getId() { return id; }
+ 
+-<<<<<<< HEAD
+-    //Setter
+-=======
+-    // Setter (dùng cho bài passing parameter)
+->>>>>>> topic/class-members
+-    public void setTitle(String title) {
+-        this.title = title;
+-    }
+-
+     // Constructor 1
+     public DigitalVideoDisc(String title) {
+         this.title = title;
+@@ -54,15 +45,20 @@
+         this.length = length;
+     }
+ 
+-    // Override toString (dùng cho printCart)
++    // Override toString
+     @Override
+     public String toString() {
+         return "DVD - " + title + " - " + category + " - "
+                 + director + " - " + length + ": " + cost + " $";
+     }
+ 
+-    // Match title (search)
++    // Match title (phục vụ search)
+     public boolean isMatch(String title) {
+         return this.title.toLowerCase().contains(title.toLowerCase());
+     }
++
++    /*
++    public String getCategory() { return category; }
++    public String getDirector() { return director; }
++    */
+ }
+\ No newline at end of file
+Index: Aims Project/Answer.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Aims Project/Answer.txt b/Aims Project/Answer.txt
+new file mode 100644
+--- /dev/null	(date 1776387533941)
++++ b/Aims Project/Answer.txt	(date 1776387533941)
+@@ -0,0 +1,9 @@
++Question: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
++
++Java không cho phép tạo hai constructor như trên.
++Mặc dù tên tham số khác nhau (title và category), nhưng cả hai constructor đều có cùng chữ ký vì đều nhận một tham số kiểu String. Trong Java, chữ ký của phương thức được xác định bởi tên phương thức và số lượng, kiểu dữ liệu của tham số, không phụ thuộc vào tên biến.
++Do đó, hai constructor sau được xem là trùng nhau:
++	public DigitalVideoDisc(String title)
++	public DigitalVideoDisc(String category)
++Vì vậy, chương trình sẽ bị lỗi biên dịch do định nghĩa constructor bị trùng.
++Để khắc phục, các constructor phải khác nhau về số lượng hoặc kiểu dữ liệu của tham số.
+\ No newline at end of file
+Index: OthersProject/Lab01/2.2.5/Caculate_2Double.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/2.2.5/Caculate_2Double.java b/OthersProject/Lab01/2.2.5/Caculate_2Double.java
+new file mode 100644
+--- /dev/null	(date 1776387533974)
++++ b/OthersProject/Lab01/2.2.5/Caculate_2Double.java	(date 1776387533974)
+@@ -0,0 +1,18 @@
++import java.util.Scanner;
++
++public class Caculate_2Double {
++    public static void main(String[] args) {
++        Scanner sc = new Scanner(System.in);
++        Double num1 = sc.nextDouble();
++        Double num2 = sc.nextDouble();
++        System.out.println("Tong = " + (num1 + num2));
++        System.out.println("Hieu = " + (num1 - num2));
++        System.out.println("Tich = " + num1 * num2);
++        if (num2 != 0) {
++            double thuong = num1 / num2;
++            System.out.println("Thuong = " + thuong);
++        } else {
++            System.out.println("Khong the chia cho 0!");
++        }
++    }
++}
+Index: OthersProject/Lab01/2.2.6/Solve_Equations.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/2.2.6/Solve_Equations.java b/OthersProject/Lab01/2.2.6/Solve_Equations.java
+new file mode 100644
+--- /dev/null	(date 1776387533986)
++++ b/OthersProject/Lab01/2.2.6/Solve_Equations.java	(date 1776387533986)
+@@ -0,0 +1,102 @@
++import java.util.Scanner;
++
++public class Solve_Equations {
++    public static void main(String[] args) {
++        Scanner sc = new Scanner(System.in);
++
++        System.out.println("0 - Giai PT bac 1");
++        System.out.println("1 - Giai he PT 2 an");
++        System.out.println("2 - Giai PT bac 2");
++        int choice = sc.nextInt();
++
++        switch (choice) {
++            case 0:
++                System.out.print("a = ");
++                double a = sc.nextDouble();
++                System.out.print("b = ");
++                double b = sc.nextDouble();
++
++                if (a == 0) {
++                    if (b == 0) {
++                        System.out.println("Vo so nghiem");
++                    } else {
++                        System.out.println("Vo nghiem");
++                    }
++                } else {
++                    double x = -b / a;
++                    System.out.println("Nghiem x = " + x);
++                }
++                break;
++
++            case 1:
++                System.out.print("a11 = ");
++                double a11 = sc.nextDouble();
++                System.out.print("a12 = ");
++                double a12 = sc.nextDouble();
++                System.out.print("b1 = ");
++                double b1 = sc.nextDouble();
++
++                System.out.print("a21 = ");
++                double a21 = sc.nextDouble();
++                System.out.print("a22 = ");
++                double a22 = sc.nextDouble();
++                System.out.print("b2 = ");
++                double b2 = sc.nextDouble();
++
++                double D = a11 * a22 - a21 * a12;
++                double D1 = b1 * a22 - b2 * a12;
++                double D2 = a11 * b2 - a21 * b1;
++
++                if (D == 0) {
++                    if (D1 == 0 && D2 == 0) {
++                        System.out.println("He vo so nghiem");
++                    } else {
++                        System.out.println("He vo nghiem");
++                    }
++                } else {
++                    double x1 = D1 / D;
++                    double x2 = D2 / D;
++                    System.out.println("x1 = " + x1 + ", x2 = " + x2);
++                }
++                break;
++
++            case 2:
++                System.out.print("a = ");
++                double aa = sc.nextDouble();
++                System.out.print("b = ");
++                double bb = sc.nextDouble();
++                System.out.print("c = ");
++                double cc = sc.nextDouble();
++
++                if (aa == 0) {
++                    if (bb == 0) {
++                        if (cc == 0) {
++                            System.out.println("Vo so nghiem");
++                        } else {
++                            System.out.println("Vo nghiem");
++                        }
++                    } else {
++                        double x = -cc / bb;
++                        System.out.println("Nghiem x = " + x);
++                    }
++                } else {
++                    double delta = bb * bb - 4 * aa * cc;
++
++                    if (delta < 0) {
++                        System.out.println("Vo nghiem");
++                    } else if (delta == 0) {
++                        double x = -bb / (2 * aa);
++                        System.out.println("Nghiem kep x = " + x);
++                    } else {
++                        double x1 = (-bb + Math.sqrt(delta)) / (2 * aa);
++                        double x2 = (-bb - Math.sqrt(delta)) / (2 * aa);
++                        System.out.println("x1 = " + x1 + ", x2 = " + x2);
++                    }
++                }
++                break;
++
++            default:
++                System.out.println("Lua chon khong hop le!");
++        }
++    }
++}
+Index: Aims Project/Source Code/DigitalVideoDisc.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Aims Project/Source Code/DigitalVideoDisc.java b/Aims Project/Source Code/DigitalVideoDisc.java
+new file mode 100644
+--- /dev/null	(date 1776387533965)
++++ b/Aims Project/Source Code/DigitalVideoDisc.java	(date 1776387533965)
+@@ -0,0 +1,68 @@
++package Aims_Project;
++
++public class DigitalVideoDisc {
++    private String title;
++    private String category;
++    private String director;
++    private int length;
++    private float cost;
++
++    // Class member (static)
++    private static int nbDigitalVideoDiscs = 0;
++
++    // Instance member
++    private int id;
++
++    // Getter
++    public String getTitle() { return title; }
++    public float getCost() { return cost; }
++    public int getId() { return id; }
++
++<<<<<<< HEAD
++    //Setter
++=======
++    // Setter (dùng cho bài passing parameter)
++>>>>>>> topic/class-members
++    public void setTitle(String title) {
++        this.title = title;
++    }
++
++    // Constructor 1
++    public DigitalVideoDisc(String title) {
++        this.title = title;
++
++        nbDigitalVideoDiscs++;
++        this.id = nbDigitalVideoDiscs;
++    }
++
++    // Constructor 2
++    public DigitalVideoDisc(String title, String category, float cost) {
++        this(title);
++        this.category = category;
++        this.cost = cost;
++    }
++
++    // Constructor 3
++    public DigitalVideoDisc(String title, String category, String director, float cost) {
++        this(title, category, cost);
++        this.director = director;
++    }
++
++    // Constructor 4
++    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
++        this(title, category, director, cost);
++        this.length = length;
++    }
++
++    // Override toString (dùng cho printCart)
++    @Override
++    public String toString() {
++        return "DVD - " + title + " - " + category + " - "
++                + director + " - " + length + ": " + cost + " $";
++    }
++
++    // Match title (search)
++    public boolean isMatch(String title) {
++        return this.title.toLowerCase().contains(title.toLowerCase());
++    }
++}
+\ No newline at end of file
+Index: Aims Project/Source Code/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Aims Project/Source Code/Cart.java b/Aims Project/Source Code/Cart.java
+new file mode 100644
+--- /dev/null	(date 1776387533963)
++++ b/Aims Project/Source Code/Cart.java	(date 1776387533963)
+@@ -0,0 +1,101 @@
++package Aims_Project;
++
++public class Cart {
++    public static final int MAX_NUMBERS_ORDERED = 20;
++
++    private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
++    private int qtyOrdered = 0;
++
++    // Add 1 DVD
++    public void addDigitalVideoDisc(DigitalVideoDisc disc) {
++        if (qtyOrdered < MAX_NUMBERS_ORDERED) {
++            itemsOrdered[qtyOrdered++] = disc;
++            System.out.println("The disc has been added");
++        } else {
++            System.out.println("The cart is almost full");
++        }
++    }
++
++    // Overloading: 2 DVDs
++    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
++        addDigitalVideoDisc(dvd1);
++        addDigitalVideoDisc(dvd2);
++    }
++
++    // Overloading: ARRAY
++    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
++        for (DigitalVideoDisc dvd : dvdList) {
++            addDigitalVideoDisc(dvd);
++        }
++    }
++
++    /*
++    // Overloading: VARARGS
++    public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
++        for (DigitalVideoDisc dvd : dvds) {
++            addDigitalVideoDisc(dvd);
++        }
++    }
++    */
++
++    // Remove DVD
++    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
++        for (int i = 0; i < qtyOrdered; i++) {
++            if (itemsOrdered[i] == disc) {
++
++                for (int j = i; j < qtyOrdered - 1; j++) {
++                    itemsOrdered[j] = itemsOrdered[j + 1];
++                }
++
++                itemsOrdered[--qtyOrdered] = null;
++                System.out.println("The disc has been removed");
++                return;
++            }
++        }
++        System.out.println("The disc was not found");
++    }
++
++    // Total cost
++    public float totalCost() {
++        float total = 0;
++        for (int i = 0; i < qtyOrdered; i++) {
++            total += itemsOrdered[i].getCost();
++        }
++        return total;
++    }
++
++    // Print cart
++    public void printCart() {
++        System.out.println("***CART***");
++        System.out.println("Ordered Items:");
++
++        for (int i = 0; i < qtyOrdered; i++) {
++            System.out.println((i + 1) + ". " + itemsOrdered[i]);
++        }
++
++        System.out.println("Total cost: " + totalCost());
++        System.out.println("***");
++    }
++
++    // Search by ID
++    public void searchById(int id) {
++        for (int i = 0; i < qtyOrdered; i++) {
++            if (itemsOrdered[i].getId() == id) {
++                System.out.println(itemsOrdered[i]);
++                return;
++            }
++        }
++        System.out.println("Not found");
++    }
++
++    // Search by title
++    public void searchByTitle(String title) {
++        for (int i = 0; i < qtyOrdered; i++) {
++            if (itemsOrdered[i].isMatch(title)) {
++                System.out.println(itemsOrdered[i]);
++                return;
++            }
++        }
++        System.out.println("Not found");
++    }
++}
+\ No newline at end of file
+Index: Aims Project/Source Code/Test_Passing_Parameter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Aims Project/Source Code/Test_Passing_Parameter.java b/Aims Project/Source Code/Test_Passing_Parameter.java
+new file mode 100644
+--- /dev/null	(date 1776387533965)
++++ b/Aims Project/Source Code/Test_Passing_Parameter.java	(date 1776387533965)
+@@ -0,0 +1,44 @@
++package Aims_Project;
++
++public class Test_Passing_Parameter {
++
++    public static void main(String[] args) {
++
++        DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
++        DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc("Cinderella");
++
++        // before
++        System.out.println("Before swap:");
++        System.out.println("Jungle DVD title: " + jungleDVD.getTitle());
++        System.out.println("Cinderella DVD title: " + cinderellaDVD.getTitle());
++
++        // swap
++        swap(jungleDVD, cinderellaDVD);
++
++        // after swap
++        System.out.println("\nAfter swap:");
++        System.out.println("Jungle DVD title: " + jungleDVD.getTitle());
++        System.out.println("Cinderella DVD title: " + cinderellaDVD.getTitle());
++
++        // changeTitle
++        changeTitle(jungleDVD, cinderellaDVD.getTitle());
++
++        // after change
++        System.out.println("\nAfter changeTitle:");
++        System.out.println("Jungle DVD title: " + jungleDVD.getTitle());
++    }
++
++    //swap
++    public static void swap(DigitalVideoDisc d1, DigitalVideoDisc d2) {
++        DigitalVideoDisc tmp = d1;
++        d1 = d2;
++        d2 = tmp;
++    }
++
++    //đổi tittle
++    public static void changeTitle(DigitalVideoDisc dvd, String title) {
++        String oldTitle = dvd.getTitle();
++        dvd.setTitle(title);
++        dvd = new DigitalVideoDisc(oldTitle);
++    }
++}
+\ No newline at end of file
+Index: Aims Project/Source Code/Aims.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Aims Project/Source Code/Aims.java b/Aims Project/Source Code/Aims.java
+new file mode 100644
+--- /dev/null	(date 1776387533963)
++++ b/Aims Project/Source Code/Aims.java	(date 1776387533963)
+@@ -0,0 +1,33 @@
++package Aims_Project;
++
++public class Aims {
++    public static void main(String[] args) {
++
++        // Create a new cart
++        Cart anOrder = new Cart();
++
++        // Create new dvd and add to the cart
++        DigitalVideoDisc dvd1 = new DigitalVideoDisc(
++                "DVD One", "Category 1", "Director 1", 120, 10.0f);
++
++        DigitalVideoDisc dvd2 = new DigitalVideoDisc(
++                "DVD Two", "Category 2", "Director 2", 90, 15.5f);
++
++        DigitalVideoDisc dvd3 = new DigitalVideoDisc(
++                "DVD Three", "Category 3", "Director 3", 100, 20.0f);
++
++        // Add DVDs
++        anOrder.addDigitalVideoDisc(dvd1);
++        anOrder.addDigitalVideoDisc(dvd2);
++        anOrder.addDigitalVideoDisc(dvd3);
++
++        // Print total cost
++        System.out.println("Total cost is: " + anOrder.totalCost());
++
++        // Test remove
++        anOrder.removeDigitalVideoDisc(dvd2);
++
++        // Print again
++        System.out.println("Total cost after remove: " + anOrder.totalCost());
++    }
++}
+Index: OthersProject/Lab01/Lab02/Answer.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/Lab02/Answer.txt b/OthersProject/Lab01/Lab02/Answer.txt
+new file mode 100644
+--- /dev/null	(date 1776387533997)
++++ b/OthersProject/Lab01/Lab02/Answer.txt	(date 1776387533997)
+@@ -0,0 +1,9 @@
++Question: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
++
++Java không cho phép tạo hai constructor như trên.
++Mặc dù tên tham số khác nhau (title và category), nhưng cả hai constructor đều có cùng chữ ký vì đều nhận một tham số kiểu String. Trong Java, chữ ký của phương thức được xác định bởi tên phương thức và số lượng, kiểu dữ liệu của tham số, không phụ thuộc vào tên biến.
++Do đó, hai constructor sau được xem là trùng nhau:
++	public DigitalVideoDisc(String title)
++	public DigitalVideoDisc(String category)
++Vì vậy, chương trình sẽ bị lỗi biên dịch do định nghĩa constructor bị trùng.
++Để khắc phục, các constructor phải khác nhau về số lượng hoặc kiểu dữ liệu của tham số.
+\ No newline at end of file
+Index: Source Code/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Aims_Project;\r\n\r\npublic class Cart {\r\n    public static final int MAX_NUMBERS_ORDERED = 20;\r\n\r\n    private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];\r\n    private int qtyOrdered = 0;\r\n\r\n    // Add 1 DVD\r\n    public void addDigitalVideoDisc(DigitalVideoDisc disc) {\r\n        if (qtyOrdered < MAX_NUMBERS_ORDERED) {\r\n            itemsOrdered[qtyOrdered++] = disc;\r\n            System.out.println(\"The disc has been added\");\r\n        } else {\r\n            System.out.println(\"The cart is almost full\");\r\n        }\r\n    }\r\n\r\n    // Overloading: 2 DVDs\r\n    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {\r\n        addDigitalVideoDisc(dvd1);\r\n        addDigitalVideoDisc(dvd2);\r\n    }\r\n\r\n    // Overloading: ARRAY\r\n    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {\r\n        for (DigitalVideoDisc dvd : dvdList) {\r\n            addDigitalVideoDisc(dvd);\r\n        }\r\n    }\r\n\r\n    /*\r\n    // Overloading: VARARGS\r\n    public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {\r\n        for (DigitalVideoDisc dvd : dvds) {\r\n            addDigitalVideoDisc(dvd);\r\n        }\r\n    }\r\n    */\r\n\r\n    // Remove DVD\r\n    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {\r\n        for (int i = 0; i < qtyOrdered; i++) {\r\n            if (itemsOrdered[i] == disc) {\r\n\r\n                for (int j = i; j < qtyOrdered - 1; j++) {\r\n                    itemsOrdered[j] = itemsOrdered[j + 1];\r\n                }\r\n\r\n                itemsOrdered[--qtyOrdered] = null;\r\n                System.out.println(\"The disc has been removed\");\r\n                return;\r\n            }\r\n        }\r\n        System.out.println(\"The disc was not found\");\r\n    }\r\n\r\n    // Total cost\r\n    public float totalCost() {\r\n        float total = 0;\r\n        for (int i = 0; i < qtyOrdered; i++) {\r\n            total += itemsOrdered[i].getCost();\r\n        }\r\n        return total;\r\n    }\r\n\r\n    // Print cart\r\n    public void printCart() {\r\n        System.out.println(\"***CART***\");\r\n        System.out.println(\"Ordered Items:\");\r\n\r\n        for (int i = 0; i < qtyOrdered; i++) {\r\n            System.out.println((i + 1) + \". \" + itemsOrdered[i]);\r\n        }\r\n\r\n        System.out.println(\"Total cost: \" + totalCost());\r\n        System.out.println(\"***\");\r\n    }\r\n\r\n    // Search by ID\r\n    public void searchById(int id) {\r\n        for (int i = 0; i < qtyOrdered; i++) {\r\n            if (itemsOrdered[i].getId() == id) {\r\n                System.out.println(itemsOrdered[i]);\r\n                return;\r\n            }\r\n        }\r\n        System.out.println(\"Not found\");\r\n    }\r\n\r\n    // Search by title\r\n    public void searchByTitle(String title) {\r\n        for (int i = 0; i < qtyOrdered; i++) {\r\n            if (itemsOrdered[i].isMatch(title)) {\r\n                System.out.println(itemsOrdered[i]);\r\n                return;\r\n            }\r\n        }\r\n        System.out.println(\"Not found\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Source Code/Cart.java b/Source Code/Cart.java
+--- a/Source Code/Cart.java	(revision 5c0ff7e75e01001435c0a2a6f690c96799957c3a)
++++ b/Source Code/Cart.java	(date 1776387534037)
+@@ -6,7 +6,7 @@
+     private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+     private int qtyOrdered = 0;
+ 
+-    // Add 1 DVD
++    // ===== ADD =====
+     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
+         if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+             itemsOrdered[qtyOrdered++] = disc;
+@@ -29,16 +29,14 @@
+         }
+     }
+ 
+-    /*
+     // Overloading: VARARGS
+     public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
+         for (DigitalVideoDisc dvd : dvds) {
+             addDigitalVideoDisc(dvd);
+         }
+     }
+-    */
+ 
+-    // Remove DVD
++    // ===== REMOVE =====
+     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+         for (int i = 0; i < qtyOrdered; i++) {
+             if (itemsOrdered[i] == disc) {
+@@ -55,7 +53,7 @@
+         System.out.println("The disc was not found");
+     }
+ 
+-    // Total cost
++    // ===== TOTAL COST =====
+     public float totalCost() {
+         float total = 0;
+         for (int i = 0; i < qtyOrdered; i++) {
+@@ -64,7 +62,7 @@
+         return total;
+     }
+ 
+-    // Print cart
++    // ===== PRINT CART (CHUẨN 100%) =====
+     public void printCart() {
+         System.out.println("***CART***");
+         System.out.println("Ordered Items:");
+@@ -77,7 +75,7 @@
+         System.out.println("***");
+     }
+ 
+-    // Search by ID
++    // ===== SEARCH BY ID =====
+     public void searchById(int id) {
+         for (int i = 0; i < qtyOrdered; i++) {
+             if (itemsOrdered[i].getId() == id) {
+@@ -88,14 +86,19 @@
+         System.out.println("Not found");
+     }
+ 
+-    // Search by title
++    // ===== SEARCH BY TITLE =====
+     public void searchByTitle(String title) {
++        boolean found = false;
++
+         for (int i = 0; i < qtyOrdered; i++) {
+             if (itemsOrdered[i].isMatch(title)) {
+                 System.out.println(itemsOrdered[i]);
+-                return;
++                found = true;
+             }
+         }
+-        System.out.println("Not found");
++
++        if (!found) {
++            System.out.println("Not found");
++        }
+     }
+ }
+\ No newline at end of file
+Index: OthersProject/Lab01/Lab02/Source Code/DigitalVideoDisc.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/Lab02/Source Code/DigitalVideoDisc.java b/OthersProject/Lab01/Lab02/Source Code/DigitalVideoDisc.java
+new file mode 100644
+--- /dev/null	(date 1776387534023)
++++ b/OthersProject/Lab01/Lab02/Source Code/DigitalVideoDisc.java	(date 1776387534023)
+@@ -0,0 +1,54 @@
++package Aims_Project;
++
++public class DigitalVideoDisc {
++    private String title;
++    private String category;
++    private String director;
++    private int length;
++    private float cost;
++
++    // Getters
++    public String getTitle() {
++        return title;
++    }
++    public String getCategory() {
++        return category;
++    }
++    public String getDirector() {
++        return director;
++    }
++    public int getLength() {
++        return length;
++    }
++    public float getCost() {
++        return cost;
++    }
++
++    // Constructor 1
++    public DigitalVideoDisc(String title) {
++        this.title = title;
++        this.category = "";
++        this.director = "";
++        this.length = 0;
++        this.cost = 0.0f;
++    }
++
++    // Constructor 2
++    public DigitalVideoDisc(String title, String category, float cost) {
++        this(title);
++        this.category = category;
++        this.cost = cost;
++    }
++
++    // Constructor 3
++    public DigitalVideoDisc(String title, String category, String director, float cost) {
++        this(title, category, cost);
++        this.director = director;
++    }
++
++    // Constructor 4
++    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
++        this(title, category, director, cost);
++        this.length = length;
++    }
++}
+\ No newline at end of file
+Index: OthersProject/Lab01/answer.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/answer.txt b/OthersProject/Lab01/answer.txt
+new file mode 100644
+--- /dev/null	(date 1776387534023)
++++ b/OthersProject/Lab01/answer.txt	(date 1776387534023)
+@@ -0,0 +1,42 @@
++Câu hỏi 1: Điều gì xảy ra nếu người dùng chọn “Cancel”?
++
++Khi người dùng chọn Cancel: JOptionPane.showConfirmDialog trả về giá trị JOptionPane.CANCEL_OPTION.
++Trong đoạn code hiện tại, mọi lựa chọn không phải Yes đều được hiển thị là "No".
++Về thực tế: đây là hành vi mặc định, nhưng nếu muốn phân biệt Cancel, bạn cần kiểm tra riêng CANCEL_OPTION và xử lý thông báo tương ứng.
++
+++) Ví dụ rõ ràng:
++	if(option == JOptionPane.YES_OPTION) {
++	    JOptionPane.showMessageDialog(null, "You've chosen: Yes");
++	} else if(option == JOptionPane.NO_OPTION) {
++	    JOptionPane.showMessageDialog(null, "You've chosen: No");
++	} else {
++	    JOptionPane.showMessageDialog(null, "You've chosen: Cancel");
++	}
++
++Câu hỏi 2: Làm thế nào để tùy chỉnh các tùy chọn cho người dùng, ví dụ chỉ hai tùy chọn “Yes” và “No”, hoặc “I do” và “I don’t”?
++
++Để tùy chỉnh nhãn nút, bạn dùng JOptionPane.showOptionDialog thay vì showConfirmDialog.
++Ví dụ với hai tùy chọn "I do" và "I don't":
++	Object[] options = {"I do", "I don't"};
++	int option = JOptionPane.showOptionDialog(null,
++	        "Do you want to join the event?",
++	        "Choose your option",
++	        JOptionPane.YES_NO_OPTION,
++	        JOptionPane.QUESTION_MESSAGE,
++	        null,
++	        options,
++	        options[0]);
++	if(option == 0){
++	    JOptionPane.showMessageDialog(null, "You chose: I do");
++	} else if(option == 1){
++	    JOptionPane.showMessageDialog(null, "You chose: I don't");
++	} else {
++	    JOptionPane.showMessageDialog(null, "You closed the dialog");
++	}
++Giải thích:
++	+) options là mảng các nhãn nút muốn hiển thị.
++	+) option trả về chỉ số của nút mà người dùng nhấn:
++		0 → nút đầu tiên ("I do")
++		1 → nút thứ hai ("I don't")
++		-1 → người dùng đóng hộp thoại mà không nhấn nút nào
++	=> Có thể tùy chỉnh bất kỳ nhãn nút nào và xử lý đúng hành động người dùng.
+\ No newline at end of file
+Index: OthersProject/Lab01/Lab02/Source Code/Aims.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/Lab02/Source Code/Aims.java b/OthersProject/Lab01/Lab02/Source Code/Aims.java
+new file mode 100644
+--- /dev/null	(date 1776387534023)
++++ b/OthersProject/Lab01/Lab02/Source Code/Aims.java	(date 1776387534023)
+@@ -0,0 +1,33 @@
++package Aims_Project;
++
++public class Aims {
++    public static void main(String[] args) {
++
++        // Create a new cart
++        Cart anOrder = new Cart();
++
++        // Create new dvd and add to the cart
++        DigitalVideoDisc dvd1 = new DigitalVideoDisc(
++                "DVD One", "Category 1", "Director 1", 120, 10.0f);
++
++        DigitalVideoDisc dvd2 = new DigitalVideoDisc(
++                "DVD Two", "Category 2", "Director 2", 90, 15.5f);
++
++        DigitalVideoDisc dvd3 = new DigitalVideoDisc(
++                "DVD Three", "Category 3", "Director 3", 100, 20.0f);
++
++        // Add DVDs
++        anOrder.addDigitalVideoDisc(dvd1);
++        anOrder.addDigitalVideoDisc(dvd2);
++        anOrder.addDigitalVideoDisc(dvd3);
++
++        // Print total cost
++        System.out.println("Total cost is: " + anOrder.totalCost());
++
++        // Test remove
++        anOrder.removeDigitalVideoDisc(dvd2);
++
++        // Print again
++        System.out.println("Total cost after remove: " + anOrder.totalCost());
++    }
++}
+Index: OthersProject/Lab01/Lab02/Source Code/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/Lab02/Source Code/Cart.java b/OthersProject/Lab01/Lab02/Source Code/Cart.java
+new file mode 100644
+--- /dev/null	(date 1776387534023)
++++ b/OthersProject/Lab01/Lab02/Source Code/Cart.java	(date 1776387534023)
+@@ -0,0 +1,55 @@
++package Aims_Project;
++
++public class Cart {
++    public static final int MAX_NUMBERS_ORDERED = 20;
++
++    private DigitalVideoDisc[] items_ordered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
++    private int qty_ordered = 0;
++
++    // Add DVD
++    public void addDigitalVideoDisc(DigitalVideoDisc disc) {
++        if (qty_ordered < MAX_NUMBERS_ORDERED) {
++            items_ordered[qty_ordered] = disc;
++            qty_ordered++;
++            System.out.println("The disc has been added");
++        } else {
++            System.out.println("The cart is almost full");
++        }
++    }
++
++    // Remove DVD
++    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
++        boolean found = false;
++
++        for (int i = 0; i < qty_ordered; i++) {
++            if (items_ordered[i] == disc) {
++                found = true;
++
++                for (int j = i; j < qty_ordered - 1; j++) {
++                    items_ordered[j] = items_ordered[j + 1];
++                }
++
++                items_ordered[qty_ordered - 1] = null;
++                qty_ordered--;
++
++                System.out.println("The disc has been removed");
++                break;
++            }
++        }
++
++        if (!found) {
++            System.out.println("The disc was not found");
++        }
++    }
++
++    // Total cost
++    public float totalCost() {
++        float total = 0;
++
++        for (int i = 0; i < qty_ordered; i++) {
++            total += items_ordered[i].getCost();
++        }
++
++        return total;
++    }
++}
+\ No newline at end of file
+Index: OthersProject/Lab02/Answer.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab02/Answer.txt b/OthersProject/Lab02/Answer.txt
+new file mode 100644
+--- /dev/null	(date 1776387534023)
++++ b/OthersProject/Lab02/Answer.txt	(date 1776387534023)
+@@ -0,0 +1,9 @@
++Question: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
++
++Java không cho phép tạo hai constructor như trên.
++Mặc dù tên tham số khác nhau (title và category), nhưng cả hai constructor đều có cùng chữ ký vì đều nhận một tham số kiểu String. Trong Java, chữ ký của phương thức được xác định bởi tên phương thức và số lượng, kiểu dữ liệu của tham số, không phụ thuộc vào tên biến.
++Do đó, hai constructor sau được xem là trùng nhau:
++	public DigitalVideoDisc(String title)
++	public DigitalVideoDisc(String category)
++Vì vậy, chương trình sẽ bị lỗi biên dịch do định nghĩa constructor bị trùng.
++Để khắc phục, các constructor phải khác nhau về số lượng hoặc kiểu dữ liệu của tham số.
+\ No newline at end of file
+Index: OthersProject/Lab01/6.1/ChoosingOption.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/6.1/ChoosingOption.java b/OthersProject/Lab01/6.1/ChoosingOption.java
+new file mode 100644
+--- /dev/null	(date 1776387533986)
++++ b/OthersProject/Lab01/6.1/ChoosingOption.java	(date 1776387533986)
+@@ -0,0 +1,13 @@
++import javax.swing.JOptionPane;
++
++public class ChoosingOption {
++    public static void main(String[] args) {
++        int option = JOptionPane.showConfirmDialog(null,
++                "Do you want to change to the first class ticket?");
++
++        JOptionPane.showMessageDialog(null, "You've chosen: "
++                + (option == JOptionPane.YES_OPTION ? "Yes" : "No"));
++
++        System.exit(0);
++    }
++}
+\ No newline at end of file
+Index: OthersProject/Lab01/6.2/InputFromKeyboard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/6.2/InputFromKeyboard.java b/OthersProject/Lab01/6.2/InputFromKeyboard.java
+new file mode 100644
+--- /dev/null	(date 1776387533989)
++++ b/OthersProject/Lab01/6.2/InputFromKeyboard.java	(date 1776387533989)
+@@ -0,0 +1,21 @@
++import java.util.Scanner;
++
++public class InputFromKeyboard {
++    public static void main(String args[]) {
++        Scanner keyboard = new Scanner(System.in);
++
++        System.out.println("What's your name?");
++        String strName = keyboard.nextLine();
++        System.out.println("How old are you?");
++        int iAge = keyboard.nextInt();
++        System.out.println("How tall are you (m)?");
++        double dHeight = keyboard.nextDouble();
++
++        //similar to other data types
++        //nextByte(), nextShort(), nextLong()
++        //nextFloat(), nextBoolean()
++
++        System.out.println("Mrs/Ms. " + strName + ", " + iAge + " years old. "
++                + "Your height is " + dHeight + ".");
++    }
++}
+\ No newline at end of file
+Index: OthersProject/Lab01/6.3/triangle_height_star.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/6.3/triangle_height_star.java b/OthersProject/Lab01/6.3/triangle_height_star.java
+new file mode 100644
+--- /dev/null	(date 1776387533989)
++++ b/OthersProject/Lab01/6.3/triangle_height_star.java	(date 1776387533989)
+@@ -0,0 +1,24 @@
++import java.util.Scanner;
++
++public class triangle_height_star {
++     public static void main(String[] args) {
++         Scanner nhap = new Scanner(System.in);
++         System.out.print("n=");
++         int n = nhap.nextInt();
++         int a=n;
++         for (int i=1; i<=n; i++) {
++             a=a-1;
++             int soSao = 2*i -1;
++             for(int j=0; j<=a; j++){
++                 System.out.print(" ");
++             }
++             for (int j=1; j<=soSao; j++) {
++                 System.out.print("*");
++             }
++             for(int j=0; j<=a; j++){
++                 System.out.print(" ");
++             }
++             System.out.println();
++         }
++     }
++}
+Index: OthersProject/Lab02/Source Code/DigitalVideoDisc.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab02/Source Code/DigitalVideoDisc.java b/OthersProject/Lab02/Source Code/DigitalVideoDisc.java
+new file mode 100644
+--- /dev/null	(date 1776387534037)
++++ b/OthersProject/Lab02/Source Code/DigitalVideoDisc.java	(date 1776387534037)
+@@ -0,0 +1,54 @@
++package Aims_Project;
++
++public class DigitalVideoDisc {
++    private String title;
++    private String category;
++    private String director;
++    private int length;
++    private float cost;
++
++    // Getters
++    public String getTitle() {
++        return title;
++    }
++    public String getCategory() {
++        return category;
++    }
++    public String getDirector() {
++        return director;
++    }
++    public int getLength() {
++        return length;
++    }
++    public float getCost() {
++        return cost;
++    }
++
++    // Constructor 1
++    public DigitalVideoDisc(String title) {
++        this.title = title;
++        this.category = "";
++        this.director = "";
++        this.length = 0;
++        this.cost = 0.0f;
++    }
++
++    // Constructor 2
++    public DigitalVideoDisc(String title, String category, float cost) {
++        this(title);
++        this.category = category;
++        this.cost = cost;
++    }
++
++    // Constructor 3
++    public DigitalVideoDisc(String title, String category, String director, float cost) {
++        this(title, category, cost);
++        this.director = director;
++    }
++
++    // Constructor 4
++    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
++        this(title, category, director, cost);
++        this.length = length;
++    }
++}
+\ No newline at end of file
+Index: OthersProject/Lab01/6.4/Days_of_month.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/6.4/Days_of_month.java b/OthersProject/Lab01/6.4/Days_of_month.java
+new file mode 100644
+--- /dev/null	(date 1776387533989)
++++ b/OthersProject/Lab01/6.4/Days_of_month.java	(date 1776387533989)
+@@ -0,0 +1,79 @@
++import java.util.Scanner;
++
++public class Days_of_month {
++    static String[] tenThangDayDu = { "January", "February", "March", "April", "May", "June",
++            "July", "August", "September", "October", "November", "December" };
++    static String[] vietTat = { "Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
++            "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." };
++    static String[] baChuCai = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
++            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
++    static int[] ngay = { 31,28,31,30,31,30,31,31,30,31,30,31 };
++
++    public static int nhapThang(Scanner sc) {
++        int chiSoThang = -1;
++        while (chiSoThang == -1) {
++            String nhapThang = sc.next();
++            try {
++                int soThang = Integer.parseInt(nhapThang);
++                if (soThang >= 1 && soThang <= 12) {
++                    chiSoThang = soThang - 1;
++                    continue;
++                }
++            } catch (NumberFormatException e) {
++            }
++
++            for (int i = 0; i < tenThangDayDu.length; i++) {
++                if (nhapThang.equalsIgnoreCase(tenThangDayDu[i]) ||
++                        nhapThang.equalsIgnoreCase(vietTat[i]) ||
++                        nhapThang.equalsIgnoreCase(baChuCai[i])) {
++                    chiSoThang = i;
++                    break;
++                }
++            }
++
++            if (chiSoThang == -1) {
++                System.out.println("Tháng không hợp lệ. Nhập lại.");
++            }
++        }
++        return chiSoThang;
++    }
++
++    public static int nhapNam(Scanner sc) {
++        int nam = -1;
++        while (nam < 0) {
++            String nhapNam = sc.next();
++            try {
++                nam = Integer.parseInt(nhapNam);
++                if (nam < 0) {
++                    System.out.println("Năm phải là số không âm. Nhập lại.");
++                }
++            } catch (NumberFormatException e) {
++                System.out.println("Năm không hợp lệ. Nhập lại.");
++            }
++        }
++        return nam;
++    }
++
++    public static boolean kiemTraNamNhuan(int nam) {
++        return (nam % 4 == 0 && nam % 100 != 0) || (nam % 400 == 0);
++    }
++
++    public static int tinhSoNgay(int chiSoThang, boolean namNhuan) {
++        if (chiSoThang == 1 && namNhuan)
++            return 29;
++        return ngay[chiSoThang];
++    }
++
++    public static void main(String[] args) {
++        Scanner sc = new Scanner(System.in);
++
++        int chiSoThang = nhapThang(sc);
++        int nam = nhapNam(sc);
++
++        boolean namNhuan = kiemTraNamNhuan(nam);
++        int soNgay = tinhSoNgay(chiSoThang, namNhuan);
++
++        System.out.println(tenThangDayDu[chiSoThang] + " " + nam + " có " + soNgay + " ngày.");
++        sc.close();
++    }
++}
+Index: OthersProject/Lab02/Source Code/Aims.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab02/Source Code/Aims.java b/OthersProject/Lab02/Source Code/Aims.java
+new file mode 100644
+--- /dev/null	(date 1776387534037)
++++ b/OthersProject/Lab02/Source Code/Aims.java	(date 1776387534037)
+@@ -0,0 +1,33 @@
++package Aims_Project;
++
++public class Aims {
++    public static void main(String[] args) {
++
++        // Create a new cart
++        Cart anOrder = new Cart();
++
++        // Create new dvd and add to the cart
++        DigitalVideoDisc dvd1 = new DigitalVideoDisc(
++                "DVD One", "Category 1", "Director 1", 120, 10.0f);
++
++        DigitalVideoDisc dvd2 = new DigitalVideoDisc(
++                "DVD Two", "Category 2", "Director 2", 90, 15.5f);
++
++        DigitalVideoDisc dvd3 = new DigitalVideoDisc(
++                "DVD Three", "Category 3", "Director 3", 100, 20.0f);
++
++        // Add DVDs
++        anOrder.addDigitalVideoDisc(dvd1);
++        anOrder.addDigitalVideoDisc(dvd2);
++        anOrder.addDigitalVideoDisc(dvd3);
++
++        // Print total cost
++        System.out.println("Total cost is: " + anOrder.totalCost());
++
++        // Test remove
++        anOrder.removeDigitalVideoDisc(dvd2);
++
++        // Print again
++        System.out.println("Total cost after remove: " + anOrder.totalCost());
++    }
++}
+Index: OthersProject/Lab02/Source Code/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab02/Source Code/Cart.java b/OthersProject/Lab02/Source Code/Cart.java
+new file mode 100644
+--- /dev/null	(date 1776387534037)
++++ b/OthersProject/Lab02/Source Code/Cart.java	(date 1776387534037)
+@@ -0,0 +1,55 @@
++package Aims_Project;
++
++public class Cart {
++    public static final int MAX_NUMBERS_ORDERED = 20;
++
++    private DigitalVideoDisc[] items_ordered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
++    private int qty_ordered = 0;
++
++    // Add DVD
++    public void addDigitalVideoDisc(DigitalVideoDisc disc) {
++        if (qty_ordered < MAX_NUMBERS_ORDERED) {
++            items_ordered[qty_ordered] = disc;
++            qty_ordered++;
++            System.out.println("The disc has been added");
++        } else {
++            System.out.println("The cart is almost full");
++        }
++    }
++
++    // Remove DVD
++    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
++        boolean found = false;
++
++        for (int i = 0; i < qty_ordered; i++) {
++            if (items_ordered[i] == disc) {
++                found = true;
++
++                for (int j = i; j < qty_ordered - 1; j++) {
++                    items_ordered[j] = items_ordered[j + 1];
++                }
++
++                items_ordered[qty_ordered - 1] = null;
++                qty_ordered--;
++
++                System.out.println("The disc has been removed");
++                break;
++            }
++        }
++
++        if (!found) {
++            System.out.println("The disc was not found");
++        }
++    }
++
++    // Total cost
++    public float totalCost() {
++        float total = 0;
++
++        for (int i = 0; i < qty_ordered; i++) {
++            total += items_ordered[i].getCost();
++        }
++
++        return total;
++    }
++}
+\ No newline at end of file
+Index: OthersProject/Lab01/6.5/Sort_Array.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/6.5/Sort_Array.java b/OthersProject/Lab01/6.5/Sort_Array.java
+new file mode 100644
+--- /dev/null	(date 1776387533997)
++++ b/OthersProject/Lab01/6.5/Sort_Array.java	(date 1776387533997)
+@@ -0,0 +1,33 @@
++import java.util.Scanner;
++
++public class Sort_Array {
++    static void main(String[] args) {
++        Scanner sc= new Scanner(System.in);
++        int n = sc.nextInt();
++        int[] A = new int[n];
++        int sum=0;
++        for(int i=0; i<n; i++){
++            A[i] = sc.nextInt();
++            sum += A[i];
++        }
++        int visit =0;
++        for(int i=0; i<n-1; i++){
++            int min= A[i];
++            for(int j=i; j<n; j++){
++                if(min> A[j]){
++                    min=A[j];
++                    visit=j;
++                }
++            }
++            int tmp=A[i];
++            A[i] = A[visit];
++            A[visit] = tmp;
++        }
++        System.out.println("sum = " + sum);
++        System.out.println("arg = " + sum/n);
++        System.out.print("sort string: ");
++        for(int i=0; i<n; i++){
++            System.out.print(A[i] +" ");
++        }
++    }
++}
+Index: OthersProject/Lab01/6.6/Add_2Matrices.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/6.6/Add_2Matrices.java b/OthersProject/Lab01/6.6/Add_2Matrices.java
+new file mode 100644
+--- /dev/null	(date 1776387533997)
++++ b/OthersProject/Lab01/6.6/Add_2Matrices.java	(date 1776387533997)
+@@ -0,0 +1,30 @@
++import java.util.Scanner;
++
++public class Add_2Matrices {
++    static void main(String[] args) {
++        Scanner sc = new Scanner(System.in);
++        int n = sc.nextInt();
++        int m = sc.nextInt();
++        int[][] a = new int[m][m];
++        int[][] b = new int[m][m];
++        System.out.print("a = ");
++        for(int i=0; i<n; i++){
++            for(int j=0; j<m; j++){
++                a[i][j] = sc.nextInt();
++            }
++        }
++        System.out.print("b = ");
++        for(int i=0; i<n; i++){
++            for(int j=0; j<m; j++){
++                b[i][j] = sc.nextInt();
++                a[i][j] += b[i][j];
++            }
++        }
++        System.out.print("Sum = ");
++        for(int i=0; i<n; i++){
++            for(int j=0; j<m; j++){
++                System.out.print(a[i][j] +" ");
++            }
++        }
++    }
++}
+Index: OthersProject/Lab01/2.2.1/HelloWorld.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/2.2.1/HelloWorld.java b/OthersProject/Lab01/2.2.1/HelloWorld.java
+new file mode 100644
+--- /dev/null	(date 1776387533965)
++++ b/OthersProject/Lab01/2.2.1/HelloWorld.java	(date 1776387533965)
+@@ -0,0 +1,6 @@
++public class HelloWorld {
++    static void main(String[] args) {
++        System.out.println("Xin chao \n cac ban!");
++        System.out.println("Hello \t world!");
++    }
++}
+Index: OthersProject/Lab01/2.2.2/FirstDialog.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/2.2.2/FirstDialog.java b/OthersProject/Lab01/2.2.2/FirstDialog.java
+new file mode 100644
+--- /dev/null	(date 1776387533970)
++++ b/OthersProject/Lab01/2.2.2/FirstDialog.java	(date 1776387533970)
+@@ -0,0 +1,7 @@
++import javax.swing.JOptionPane;
++public class FirstDialog {
++    static void main(String[] args) {
++        JOptionPane.showMessageDialog(null, "Hello world! How are you?");
++        System.exit(0);
++    }
++}
+Index: OthersProject/Lab01/2.2.3/HelloNameDialog.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/2.2.3/HelloNameDialog.java b/OthersProject/Lab01/2.2.3/HelloNameDialog.java
+new file mode 100644
+--- /dev/null	(date 1776387533970)
++++ b/OthersProject/Lab01/2.2.3/HelloNameDialog.java	(date 1776387533970)
+@@ -0,0 +1,11 @@
++// Example 3: HelloNameDialog.java
++import javax.swing.JOptionPane;
++
++public class HelloNameDialog {
++    public static void main(String[] args) {
++        String result;
++        result = JOptionPane.showInputDialog("Please enter your name:");
++        JOptionPane.showMessageDialog(null, "Hi " + result + "!");
++        System.exit(0);
++    }
++}
+\ No newline at end of file
+Index: OthersProject/Lab01/2.2.4/ShowTwoNumbers.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OthersProject/Lab01/2.2.4/ShowTwoNumbers.java b/OthersProject/Lab01/2.2.4/ShowTwoNumbers.java
+new file mode 100644
+--- /dev/null	(date 1776387533974)
++++ b/OthersProject/Lab01/2.2.4/ShowTwoNumbers.java	(date 1776387533974)
+@@ -0,0 +1,24 @@
++// Example 5: ShowTwoNumbers.java
++import javax.swing.JOptionPane;
++
++public class ShowTwoNumbers {
++    public static void main(String[] args) {
++        String strNum1, strNum2;
++        String strNotification = "You've just entered: ";
++
++        strNum1 = JOptionPane.showInputDialog(null,
++                "Please input the first number: ", "Input the first number",
++                JOptionPane.INFORMATION_MESSAGE);
++        strNotification += strNum1 + " and ";
++
++        strNum2 = JOptionPane.showInputDialog(null,
++                "Please input the second number: ", "Input the second number",
++                JOptionPane.INFORMATION_MESSAGE);
++        strNotification += strNum2;
++
++        JOptionPane.showMessageDialog(null, strNotification,
++                "Show two numbers", JOptionPane.INFORMATION_MESSAGE);
++
++        System.exit(0);
++    }
++}
+\ No newline at end of file
+diff --git a/OthersProject/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta.lock b/OthersProject/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta.lock
+new file mode 100644

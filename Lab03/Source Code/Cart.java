@@ -8,6 +8,11 @@ public class Cart {
 
     // ===== ADD =====
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
+        if (disc == null) {
+            System.out.println("Invalid disc");
+            return;
+        }
+
         if (qtyOrdered < MAX_NUMBERS_ORDERED) {
             itemsOrdered[qtyOrdered++] = disc;
             System.out.println("The disc has been added");
@@ -39,12 +44,10 @@ public class Cart {
     // ===== REMOVE =====
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         for (int i = 0; i < qtyOrdered; i++) {
-            if (itemsOrdered[i] == disc) {
-
+            if (itemsOrdered[i].getId() == disc.getId()) {
                 for (int j = i; j < qtyOrdered - 1; j++) {
                     itemsOrdered[j] = itemsOrdered[j + 1];
                 }
-
                 itemsOrdered[--qtyOrdered] = null;
                 System.out.println("The disc has been removed");
                 return;
@@ -62,28 +65,29 @@ public class Cart {
         return total;
     }
 
-    // ===== PRINT CART (CHUẨN 100%) =====
+    // ===== PRINT CART =====
     public void printCart() {
-        System.out.println("***CART***");
+        System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
 
         for (int i = 0; i < qtyOrdered; i++) {
             System.out.println((i + 1) + ". " + itemsOrdered[i]);
         }
 
-        System.out.println("Total cost: " + totalCost());
-        System.out.println("***");
+        System.out.printf("Total cost: %.2f $\n", totalCost());
+        System.out.println("***************************************************");
     }
 
     // ===== SEARCH BY ID =====
     public void searchById(int id) {
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i].getId() == id) {
+                System.out.println("Found:");
                 System.out.println(itemsOrdered[i]);
                 return;
             }
         }
-        System.out.println("Not found");
+        System.out.println("No matching DVD found");
     }
 
     // ===== SEARCH BY TITLE =====
@@ -92,13 +96,14 @@ public class Cart {
 
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i].isMatch(title)) {
+                System.out.println("Found:");
                 System.out.println(itemsOrdered[i]);
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("Not found");
+            System.out.println("No matching DVD found");
         }
     }
 }
