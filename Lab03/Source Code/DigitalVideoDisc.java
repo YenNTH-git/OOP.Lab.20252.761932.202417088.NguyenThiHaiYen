@@ -7,7 +7,7 @@ public class DigitalVideoDisc {
     private int length;
     private float cost;
 
-    // Static (classifier member)
+    // Classifier member
     private static int nbDigitalVideoDiscs = 0;
 
     // Instance member
@@ -21,9 +21,25 @@ public class DigitalVideoDisc {
     public String getDirector() { return director; }
     public int getLength() { return length; }
 
-    // ===== SETTER (dùng cho bài passing parameter) =====
+    // ===== SETTER =====
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
     }
 
     // ===== CONSTRUCTOR =====
@@ -52,12 +68,15 @@ public class DigitalVideoDisc {
     // ===== toString =====
     @Override
     public String toString() {
-        return "DVD - " + title + " - " + category + " - "
-                + director + " - " + length + ": " + cost + " $";
+        return "DVD - " + title + " - "
+                + (category != null ? category : "N/A") + " - "
+                + (director != null ? director : "N/A") + " - "
+                + length + ": " + cost + " $";
     }
 
     // ===== MATCH TITLE =====
     public boolean isMatch(String title) {
+        if (title == null || this.title == null) return false;
         return this.title.toLowerCase().contains(title.toLowerCase());
     }
 }
