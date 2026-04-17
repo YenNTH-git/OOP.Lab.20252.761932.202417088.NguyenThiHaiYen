@@ -21,6 +21,11 @@ public class DigitalVideoDisc {
     public String getDirector() { return director; }
     public int getLength() { return length; }
 
+    // ===== SETTER (dùng cho bài passing parameter) =====
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     // ===== CONSTRUCTOR =====
     public DigitalVideoDisc(String title) {
         this.title = title;
