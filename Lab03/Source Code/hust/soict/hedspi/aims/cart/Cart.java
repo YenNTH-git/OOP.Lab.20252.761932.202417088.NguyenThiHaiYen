@@ -1,4 +1,6 @@
-package Aims_Project;
+package Aims_Project.hust.soict.hedspi.aims.cart;
+
+import Aims_Project.hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -26,14 +28,14 @@ public class Cart {
         addDigitalVideoDisc(dvd1);
         addDigitalVideoDisc(dvd2);
     }
-
+    /*
     // Overloading: ARRAY
     public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
         for (DigitalVideoDisc dvd : dvdList) {
             addDigitalVideoDisc(dvd);
         }
     }
-
+    */
     // Overloading: VARARGS
     public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
         for (DigitalVideoDisc dvd : dvds) {
