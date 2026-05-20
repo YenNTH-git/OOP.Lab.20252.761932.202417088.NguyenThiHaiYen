@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92d45445-bf9d-4e89-9d4c-96100052610d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Lab03/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.1/HelloWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.1/Kết quả code.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.2/FirstDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.2/Hộp message.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.3/Box Scanner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.3/HelloNameDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.3/Kết quả.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.4/Input num1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.4/Input num2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.4/Kết quả TH ko nhập số nào.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.4/Kết quả TH nhập 1 số.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.4/Kết quả TH nhập đủ 2 số.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.4/ShowTwoNumbers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.5/Caculate_2Double.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.5/Kết quả nhập 2 số double.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.5/Kết quả nhập 2 số nguyên.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải HPT 2 ẩn/HPT có nghiệm duy nhất.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải HPT 2 ẩn/HPT vô nghiệm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải HPT 2 ẩn/HPT vô số nghiệm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải PT b1/PT có 1 nghiệm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải PT b1/PT vô nghiệm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải PT b1/PT vô số nghiệm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT có 2 nghiệm pb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT có nghiệm kép.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT vô nghiệm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT vô số nghiệm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/2.2.6/Solve_Equations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.1/ChoosingOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.1/chọn No or Cancel đều ra NO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.1/chọn Yes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.1/hộp option.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.2/InputFromKeyboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.2/Kết quả chạy code.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.3/triangle_height_star.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.3/Ảnh chạy test n=5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.3/Ảnh chạy test n=8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.4/Days_of_month.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.4/Test nhập số.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.4/Test nhập tên 3 chữ cái.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.4/Test nhập tên viết tắt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.4/Test nhập tên đầy đủ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.5/Sort_Array.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.5/Ảnh chạy test bất kì.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.5/Ảnh chạy test mẫu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.6/Add_2Matrices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.6/Chạy test Matran 2x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/6.6/Chạy test matran 3x3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Answer.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Design/AIMS_ClassDiagram.asta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Design/Aims ClassDiagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Design/Aims class diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Lab02.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Reading Assigment/Mind map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Requirement/AIMS Use Case full.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Requirement/AIMS use case_Customer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Requirement/AIMS useCase full.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Source Code/Aims.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Source Code/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/Lab02/Source Code/DigitalVideoDisc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab01/answer.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Answer.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Design/AIMS_ClassDiagram.asta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Design/Aims ClassDiagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Lab3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Reading Assigment/Mind map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Requirement/AIMS DVDs _UseCase.asta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Requirement/AIMS Use Case full.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Requirement/AIMS use case_Customer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Source Code/Aims.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Source Code/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/Lab02/Source Code/DigitalVideoDisc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/src/hust/soict/hedspi/garbage/ConcatenationInLoops.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/src/hust/soict/hedspi/garbage/GarbageCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/src/hust/soict/hedspi/garbage/NoGarbage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab03/OtherProjects/src/hust/soict/hedspi/garbage/text.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/OOP_Lab.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/.idea/OOP_Lab.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/.idea/Lab03.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/.idea/Lab03.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Answer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Answer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Design/AIMS_ClassDiagram.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Design/AIMS_ClassDiagram.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Design/Aims ClassDiagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Design/Aims ClassDiagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Reading Assigment/Mind map.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Reading Assigment/Mind map.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Requirement/AIMS DVDs _UseCase.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Requirement/AIMS Use Case full.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Requirement/AIMS Use Case full.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Requirement/AIMS use case_Customer.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Requirement/AIMS use case_Customer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Source Code/hust/soict/hedspi/aims/Aims.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Source Code/hust/soict/hedspi/aims/Aims.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Source Code/hust/soict/hedspi/aims/cart/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Source Code/hust/soict/hedspi/aims/cart/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Source Code/hust/soict/hedspi/aims/disc/DigitalVideoDisc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Source Code/hust/soict/hedspi/aims/disc/DigitalVideoDisc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Source Code/hust/soict/hedspi/aims/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Source Code/hust/soict/hedspi/aims/store/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Source Code/hust/soict/hedspi/test/cart/TestCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Source Code/hust/soict/hedspi/test/cart/TestCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Source Code/hust/soict/hedspi/test/disc/Test_Passing_Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Source Code/hust/soict/hedspi/test/disc/Test_Passing_Parameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimsProject/Source Code/hust/soict/hedspi/test/store/TestStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Source Code/hust/soict/hedspi/test/store/TestStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.1/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.1/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.1/Kết quả code.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.1/Kết quả code.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.2/FirstDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.2/FirstDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.2/Hộp message.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.2/Hộp message.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.3/Box Scanner.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.3/Box Scanner.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.3/HelloNameDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.3/HelloNameDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.3/Kết quả.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.3/Kết quả.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.4/Input num1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.4/Input num1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.4/Input num2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.4/Input num2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.4/Kết quả TH ko nhập số nào.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.4/Kết quả TH ko nhập số nào.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.4/Kết quả TH nhập 1 số.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.4/Kết quả TH nhập 1 số.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.4/Kết quả TH nhập đủ 2 số.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.4/Kết quả TH nhập đủ 2 số.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.4/ShowTwoNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.4/ShowTwoNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.5/Caculate_2Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.5/Caculate_2Double.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.5/Kết quả nhập 2 số double.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.5/Kết quả nhập 2 số double.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.5/Kết quả nhập 2 số nguyên.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.5/Kết quả nhập 2 số nguyên.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải HPT 2 ẩn/HPT có nghiệm duy nhất.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải HPT 2 ẩn/HPT có nghiệm duy nhất.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải HPT 2 ẩn/HPT vô nghiệm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải HPT 2 ẩn/HPT vô nghiệm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải HPT 2 ẩn/HPT vô số nghiệm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải HPT 2 ẩn/HPT vô số nghiệm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải PT b1/PT có 1 nghiệm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải PT b1/PT có 1 nghiệm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải PT b1/PT vô nghiệm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải PT b1/PT vô nghiệm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải PT b1/PT vô số nghiệm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải PT b1/PT vô số nghiệm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT có 2 nghiệm pb.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải PT bậc 2/PT có 2 nghiệm pb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT có nghiệm kép.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải PT bậc 2/PT có nghiệm kép.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT vô nghiệm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải PT bậc 2/PT vô nghiệm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Giải PT bậc 2/PT vô số nghiệm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Giải PT bậc 2/PT vô số nghiệm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/2.2.6/Solve_Equations.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/2.2.6/Solve_Equations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.1/ChoosingOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.1/ChoosingOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.1/chọn No or Cancel đều ra NO.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.1/chọn No or Cancel đều ra NO.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.1/chọn Yes.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.1/chọn Yes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.1/hộp option.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.1/hộp option.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.2/InputFromKeyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.2/InputFromKeyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.2/Kết quả chạy code.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.2/Kết quả chạy code.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.3/triangle_height_star.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.3/triangle_height_star.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.3/Ảnh chạy test n=5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.3/Ảnh chạy test n=5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.3/Ảnh chạy test n=8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.3/Ảnh chạy test n=8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.4/Days_of_month.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.4/Days_of_month.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.4/Test nhập số.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.4/Test nhập số.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.4/Test nhập tên 3 chữ cái.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.4/Test nhập tên 3 chữ cái.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.4/Test nhập tên viết tắt.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.4/Test nhập tên viết tắt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.4/Test nhập tên đầy đủ.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.4/Test nhập tên đầy đủ.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.5/Sort_Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.5/Sort_Array.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.5/Ảnh chạy test bất kì.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.5/Ảnh chạy test bất kì.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.5/Ảnh chạy test mẫu.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.5/Ảnh chạy test mẫu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.6/Add_2Matrices.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.6/Add_2Matrices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.6/Chạy test Matran 2x2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.6/Chạy test Matran 2x2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/6.6/Chạy test matran 3x3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/6.6/Chạy test matran 3x3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Answer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Answer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Design/AIMS_ClassDiagram.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Design/AIMS_ClassDiagram.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Design/Aims ClassDiagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Design/Aims ClassDiagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Design/Aims class diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Design/Aims class diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Lab02.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Lab02.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Reading Assigment/Mind map.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Reading Assigment/Mind map.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Requirement/AIMS DVDs _UseCase.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Requirement/AIMS DVDs _UseCase.asta.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Requirement/AIMS Use Case full.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Requirement/AIMS Use Case full.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Requirement/AIMS use case_Customer.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Requirement/AIMS use case_Customer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Requirement/AIMS useCase full.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Requirement/AIMS useCase full.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Source Code/Aims.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Source Code/Aims.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Source Code/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Source Code/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/Lab02/Source Code/DigitalVideoDisc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/Lab02/Source Code/DigitalVideoDisc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab01/answer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lab01/answer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Answer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Answer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Design/AIMS_ClassDiagram.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Design/AIMS_ClassDiagram.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Design/Aims ClassDiagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Design/Aims ClassDiagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Reading Assigment/Mind map.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Reading Assigment/Mind map.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Requirement/AIMS DVDs _UseCase.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Requirement/AIMS DVDs _UseCase.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Requirement/AIMS Use Case full.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Requirement/AIMS Use Case full.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Requirement/AIMS use case_Customer.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab03/AimsProject/Requirement/AIMS use case_Customer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Source Code/Aims.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Source Code/Aims.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Source Code/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Source Code/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OtherProjects/Lab02/Source Code/DigitalVideoDisc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab02/Source Code/DigitalVideoDisc.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3CZ45bBxXbZJSbAPyHeRKFvuA0a" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Aims.executor": "Run",
+    "Application.ConcatenationInLoops.executor": "Run",
+    "Application.GarbageCreator.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.NoGarbage.executor": "Run",
+    "Application.TestCart.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "topic/memory-management-string",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/DELL/IdeaProjects/OOP_Lab_clone",
+    "onboarding.tips.debug.path": "C:/Users/DELL/IdeaProjects/OOP_Lab_clone/Lab03/OtherProjects/src/Main.java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\IdeaProjects\OOP_Lab_clone" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\IdeaProjects\OOP_Lab_clone\Lab03\OtherProjects" />
+      <recent name="C:\Users\DELL\IdeaProjects\OOP_Lab_clone\Lab03" />
+      <recent name="C:\Users\DELL\IdeaProjects\OOP_Lab_clone" />
+      <recent name="C:\Users\DELL\IdeaProjects\OOP_Lab_clone\OtherProjects" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="OOP_Lab" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="OOP_Lab" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92d45445-bf9d-4e89-9d4c-96100052610d" name="Changes" comment="" />
+      <created>1776579575800</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776579575800</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Lab03/src/Main.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
