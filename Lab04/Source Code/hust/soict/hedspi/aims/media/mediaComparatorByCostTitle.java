@@ -1,0 +1,13 @@
+package Aims_Project.hust.soict.hedspi.aims.media;
+import java.util.Comparator;
+
+public class mediaComparatorByCostTitle implements Comparator<media> {
+    @Override
+    public int compare(media m1, media m2) {
+        int costCmp = Float.compare(m2.getCost(), m1.getCost());
+        if (costCmp != 0) {
+            return costCmp;
+        }
+        return m1.getTitle().compareToIgnoreCase(m2.getTitle());
+    }
+}
