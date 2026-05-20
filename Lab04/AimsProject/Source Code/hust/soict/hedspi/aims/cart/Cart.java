@@ -3,6 +3,7 @@ package Aims_Project.hust.soict.hedspi.aims.cart;
 import Aims_Project.hust.soict.hedspi.aims.media.media;
 import java.util.ArrayList;
 import java.util.Collections;
+
 public class Cart {
 
     private ArrayList<media> itemsOrdered = new ArrayList<>();
@@ -38,7 +39,7 @@ public class Cart {
         System.out.println("Ordered Items:");
 
         for (int i = 0; i < itemsOrdered.size(); i++) {
-            System.out.println((i + 1) + ". " + itemsOrdered.get(i).toString());
+            System.out.println((i + 1) + ". " + itemsOrdered.get(i));
         }
 
         System.out.println("Total cost: " + totalCost() + " $");
@@ -47,7 +48,7 @@ public class Cart {
 
     public media findByTitle(String title) {
         for (media m : itemsOrdered) {
-            if (m.getTitle().equalsIgnoreCase(title)) {
+            if (m.getTitle() != null && m.getTitle().equalsIgnoreCase(title)) {
                 return m;
             }
         }
@@ -60,7 +61,7 @@ public class Cart {
 
         for (media m : itemsOrdered) {
             if (m.getId() == id) {
-                System.out.println(m.toString());
+                System.out.println(m);
                 found = true;
             }
         }
@@ -75,8 +76,8 @@ public class Cart {
         boolean found = false;
 
         for (media m : itemsOrdered) {
-            if (m.getTitle().equalsIgnoreCase(title)) {
-                System.out.println(m.toString());
+            if (m.getTitle() != null && m.getTitle().equalsIgnoreCase(title)) {
+                System.out.println(m);
                 found = true;
             }
         }
@@ -87,12 +88,16 @@ public class Cart {
     }
 
     public void sortByTitle() {
-        Collections.sort(itemsOrdered, media.COMPARE_BY_TITLE_COST);
+        if (media.COMPARE_BY_TITLE_COST != null) {
+            Collections.sort(itemsOrdered, media.COMPARE_BY_TITLE_COST);
+        }
         System.out.println("Cart sorted by title.");
     }
 
     public void sortByCost() {
-        Collections.sort(itemsOrdered, media.COMPARE_BY_COST_TITLE);
+        if (media.COMPARE_BY_COST_TITLE != null) {
+            Collections.sort(itemsOrdered, media.COMPARE_BY_COST_TITLE);
+        }
         System.out.println("Cart sorted by cost.");
     }
 

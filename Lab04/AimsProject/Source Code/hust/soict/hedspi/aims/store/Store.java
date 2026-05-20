@@ -29,7 +29,7 @@ public class Store {
         System.out.println("***********************STORE***********************");
 
         for (int i = 0; i < itemsInStore.size(); i++) {
-            System.out.println((i + 1) + ". " + itemsInStore.get(i).toString());
+            System.out.println((i + 1) + ". " + itemsInStore.get(i));
         }
 
         System.out.println("***************************************************");
@@ -37,11 +37,10 @@ public class Store {
 
     public media findByTitle(String title) {
         for (media m : itemsInStore) {
-            if (m.getTitle().equalsIgnoreCase(title)) {
+            if (m.getTitle() != null && m.getTitle().equalsIgnoreCase(title)) {
                 return m;
             }
         }
-
         return null;
     }
 

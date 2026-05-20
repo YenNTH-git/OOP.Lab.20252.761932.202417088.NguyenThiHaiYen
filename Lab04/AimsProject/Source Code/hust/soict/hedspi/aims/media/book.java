@@ -1,30 +1,27 @@
 package Aims_Project.hust.soict.hedspi.aims.media;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class book extends media {
-    private int id;
-    private String title;
-    private String category;
-    private float cost;
-    private List<String> authors = new ArrayList<String>();
+
+    private ArrayList<String> authors = new ArrayList<>();
+
     public book() {
         super();
     }
 
-    public void addAuthor(String authorName) {
-        if (!authors.contains(authorName)) {
-            authors.add(authorName);
-        } else {
-            System.out.println("Tác giả " + authorName + " đã tồn tại.");
+    public book(int id, String title, String category, float cost) {
+        super(id, title, category, cost);
+    }
+
+    public void addAuthor(String author) {
+        if (!authors.contains(author)) {
+            authors.add(author);
         }
     }
 
-    public void removeAuthor(String authorName) {
-        if (authors.contains(authorName)) {
-            authors.remove(authorName);
-        } else {
-            System.out.println("Không tìm thấy tác giả: " + authorName);
-        }
+    @Override
+    public String toString() {
+        return "Book - " + getTitle() + " - " + getCategory() + " - " + getCost();
     }
 }

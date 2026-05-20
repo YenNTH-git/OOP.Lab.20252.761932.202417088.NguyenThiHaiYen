@@ -1,23 +1,115 @@
-Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
+1. Which classes are aggregates of other classes?
 
-Java là ngôn ngữ truyền tham trị (pass by value).
-Khi gọi phương thức, giá trị của tham số được sao chép và truyền vào hàm. Đối với object, giá trị được truyền là bản sao của reference (tham chiếu), không phải chính object.
+Các lớp có quan hệ aggregation (chứa các đối tượng khác) trong hệ thống là:
+
+Cart: chứa danh sách các đối tượng Media
+Store: chứa danh sách các đối tượng Media
+CompactDisc (CD): chứa danh sách các đối tượng Track
+
+Các lớp này có quan hệ “has-a”, tức là chúng không tự tạo ra vòng đời của đối tượng bên trong, mà chỉ quản lý và sử dụng các đối tượng đó. Vì vậy đây là quan hệ aggregation, không phải inheritance.
+
+2. Do constructors of whole classes initialize their parts?
+
+Có. Các constructor của các lớp tổng hợp (aggregation classes) phải khởi tạo các thành phần bên trong.
+
+Cụ thể:
+
+Cart phải khởi tạo ArrayList<Media>
+Store phải khởi tạo ArrayList<Media>
+CompactDisc phải khởi tạo ArrayList<Track>
+
+Việc khởi tạo này đảm bảo rằng các collection không bị null, từ đó tránh lỗi NullPointerException khi thêm hoặc truy cập phần tử. Đồng thời giúp đối tượng sẵn sàng hoạt động ngay sau khi được tạo.
+
+3. How should constructors of parent and child classes be written?
+
+Constructor của lớp cha (Media) nên chứa các thuộc tính chung như id, title, category, cost.
+
+Các lớp con phải sử dụng từ khóa super() để gọi constructor của lớp cha, nhằm tái sử dụng code và đảm bảo tính nhất quán trong việc khởi tạo dữ liệu.
+
 Ví dụ:
-public static void swap(Object o1, Object o2) {
-    Object tmp = o1;
-    o1 = o2;
-    o2 = tmp;
-}
-Gọi swap(jungleDVD, cinderellaDVD); không làm thay đổi hai object.
-Vì phương thức chỉ hoán đổi bản sao của reference, nên không ảnh hưởng đến biến bên ngoài.
 
-public static void changeTitle(DigitalVideoDisc dvd, String title) {
-    String oldTitle = dvd.getTitle();
-    dvd.setTitle(title);
-    dvd = new DigitalVideoDisc(oldTitle);
-}
-Gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()); thì title của jungleDVD bị thay đổi.
-Vì:
-dvd vẫn trỏ tới cùng object với jungleDVD
-setTitle() thay đổi trực tiếp dữ liệu của object
-Lệnh dvd = new DigitalVideoDisc(...) chỉ thay đổi biến cục bộ, không ảnh hưởng bên ngoài
+Book, DigitalVideoDisc, CompactDisc đều gọi:
+super(id, title, category, cost);
+
+Cách làm này giúp tránh lặp code và đảm bảo các thuộc tính chung luôn được khởi tạo đúng cách.
+
+4. Should redundant setter methods be removed? Why?
+
+Có. Các setter không cần thiết nên được loại bỏ.
+
+Lý do là để đảm bảo tính encapsulation (đóng gói) trong OOP. Một số thuộc tính như id hoặc title thường không nên thay đổi sau khi đối tượng được tạo.
+
+Việc loại bỏ setter giúp:
+
+Tránh thay đổi dữ liệu ngoài ý muốn
+Tăng tính an toàn của dữ liệu
+Giữ thiết kế class rõ ràng hơn
+
+5. If the passed object in equals(Object o) is not an instance of Media, what happens?
+
+Nếu object truyền vào không phải là instance của Media, phương thức equals() sẽ trả về false.
+
+Điều này được kiểm tra bằng toán tử instanceof. Nếu kiểu dữ liệu không đúng, việc so sánh là không hợp lệ nên kết luận hai đối tượng không bằng nhau.
+
+6. How should equals() be overridden in Media and Track?
+
+Cách override equals() như sau:
+
+Trong lớp Media: hai đối tượng được coi là bằng nhau nếu có cùng title
+Trong lớp Track: hai đối tượng được coi là bằng nhau nếu có cùng title và length
+
+Cách thiết kế này đảm bảo mỗi lớp có tiêu chí so sánh phù hợp với đặc điểm riêng của nó.
+
+7. What happens when using ArrayList<Media> and calling toString()?
+
+Khi sử dụng ArrayList<Media> chứa các đối tượng khác nhau và gọi toString(), Java sẽ áp dụng cơ chế đa hình (polymorphism).
+
+Điều này có nghĩa là:
+
+Phương thức toString() được gọi là của lớp thực tế tại runtime (Book, CD, DVD)
+Mỗi loại Media sẽ có cách hiển thị thông tin khác nhau
+
+Đây là ví dụ của dynamic binding trong Java.
+
+8. Which class should implement Comparable interface?
+
+Nếu sử dụng Comparable thì lớp phù hợp nhất là Media.
+
+Lý do là tất cả các loại media (Book, CD, DVD) đều kế thừa từ Media, nên Media là nơi hợp lý để định nghĩa “thứ tự tự nhiên” chung cho các đối tượng.
+
+9. How should compareTo() be implemented?
+
+Phương thức compareTo() nên định nghĩa thứ tự tự nhiên của Media như sau:
+
+So sánh theo title trước (alphabetical order)
+Nếu title giống nhau thì so sánh tiếp theo cost
+
+Điều này giúp đảm bảo một thứ tự ổn định và dễ hiểu cho toàn bộ hệ thống.
+
+10. Can we have two ordering rules using Comparable?
+
+Không. Comparable chỉ hỗ trợ một thứ tự sắp xếp duy nhất cho mỗi lớp.
+
+Do đó, ta không thể đồng thời có nhiều cách sắp xếp như:
+
+title → cost
+cost → title
+
+Nếu cần nhiều kiểu sắp xếp khác nhau thì phải sử dụng Comparator.
+
+11. How to handle different ordering rule for DVDs?
+
+Vì DVD có quy tắc sắp xếp riêng (title → length → cost), nên không nên dùng Comparable cho trường hợp này.
+
+Giải pháp đúng là:
+
+Giữ Comparable (nếu có) cho thứ tự mặc định của Media
+Tạo các lớp Comparator riêng cho từng kiểu sắp xếp
+
+Ví dụ DVD comparator:
+
+so sánh theo title
+nếu bằng thì so sánh length giảm dần
+nếu vẫn bằng thì so sánh cost
+
+Cách này giúp hệ thống linh hoạt và mở rộng tốt hơn.
