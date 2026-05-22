@@ -1,13 +1,12 @@
 package Aims_Project.hust.soict.hedspi.aims.store;
 
-import Aims_Project.hust.soict.hedspi.aims.media.media;
 import java.util.ArrayList;
 
 public class Store {
 
-    private ArrayList<media> itemsInStore = new ArrayList<>();
+    private ArrayList<Aims_Project.hust.soict.hedspi.aims.media.media> itemsInStore = new ArrayList<>();
 
-    public void addMedia(media media) {
+    public void addMedia(Aims_Project.hust.soict.hedspi.aims.media.media media) {
         if (itemsInStore.contains(media)) {
             System.out.println("Item already exists in the store.");
         } else {
@@ -16,7 +15,7 @@ public class Store {
         }
     }
 
-    public void removeMedia(media media) {
+    public void removeMedia(Aims_Project.hust.soict.hedspi.aims.media.media media) {
         if (itemsInStore.contains(media)) {
             itemsInStore.remove(media);
             System.out.println("Removed from store: " + media.getTitle());
@@ -35,8 +34,8 @@ public class Store {
         System.out.println("***************************************************");
     }
 
-    public media findByTitle(String title) {
-        for (media m : itemsInStore) {
+    public Aims_Project.hust.soict.hedspi.aims.media.media findByTitle(String title) {
+        for (Aims_Project.hust.soict.hedspi.aims.media.media m : itemsInStore) {
             if (m.getTitle() != null && m.getTitle().equalsIgnoreCase(title)) {
                 return m;
             }

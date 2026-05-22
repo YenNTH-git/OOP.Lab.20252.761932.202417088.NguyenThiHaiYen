@@ -16,7 +16,7 @@ public class Disc extends media {
     public Disc(int id, String title, String category, float cost,
                 int length, String director) {
 
-        super(id, title, category, cost); // 🔥 FIX QUAN TRỌNG NHẤT
+        super(id, title, category, cost);
 
         this.length = length;
         this.director = director;

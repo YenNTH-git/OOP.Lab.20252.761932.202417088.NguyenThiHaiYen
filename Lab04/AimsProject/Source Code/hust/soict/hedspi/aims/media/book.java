@@ -2,7 +2,7 @@ package Aims_Project.hust.soict.hedspi.aims.media;
 
 import java.util.ArrayList;
 
-public class book extends media {
+public class book extends Media {
 
     private ArrayList<String> authors = new ArrayList<>();
 

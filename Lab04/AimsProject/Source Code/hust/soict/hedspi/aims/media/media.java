@@ -1,10 +1,9 @@
 package Aims_Project.hust.soict.hedspi.aims.media;
-
 import java.util.Comparator;
 
 public class media {
 
-    // ===== FIELDS (phải protected để class con dùng được) =====
+    // ===== FIELDS =====
     protected int id;
     protected String title;
     protected String category;
@@ -32,19 +31,19 @@ public class media {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof media)) return false;
+        if (!(obj instanceof Aims_Project.hust.soict.hedspi.aims.media.media)) return false;
 
-        media other = (media) obj;
+        Aims_Project.hust.soict.hedspi.aims.media.media other = (Aims_Project.hust.soict.hedspi.aims.media.media) obj;
 
         if (this.title == null) return other.title == null;
         return this.title.equals(other.title);
     }
 
     // ===== Comparator (GIỮ NGUYÊN Ý MÀY) =====
-    public static final Comparator<media> COMPARE_BY_TITLE_COST =
+    public static final Comparator<Aims_Project.hust.soict.hedspi.aims.media.media> COMPARE_BY_TITLE_COST =
             new mediaComparatorByTitleCost();
 
-    public static final Comparator<media> COMPARE_BY_COST_TITLE =
+    public static final Comparator<Aims_Project.hust.soict.hedspi.aims.media.media> COMPARE_BY_COST_TITLE =
             new mediaComparatorByCostTitle();
 
     // ===== GETTER / SETTER =====
