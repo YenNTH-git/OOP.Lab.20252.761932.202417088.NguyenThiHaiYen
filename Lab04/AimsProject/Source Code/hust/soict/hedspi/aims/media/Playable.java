@@ -1,4 +1,4 @@
-package Aims_Project.hust.soict.hedspi.aims.media;
+package media;
 
 public interface Playable {
     // Phương thức prototype bắt buộc các lớp con phải triển khai

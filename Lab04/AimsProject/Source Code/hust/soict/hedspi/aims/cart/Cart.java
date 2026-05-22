@@ -1,64 +1,83 @@
-package Aims_Project.hust.soict.hedspi.aims.cart;
+package cart;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Cart {
 
-    private ArrayList<Aims_Project.hust.soict.hedspi.aims.media.media> itemsOrdered = new ArrayList<>();
+    private ArrayList<Aims_Project.hust.soict.hedspi.aims.media.Media> itemsOrdered = new ArrayList<>();
 
-    public void addMedia(Aims_Project.hust.soict.hedspi.aims.media.media media) {
+    // ===== ADD =====
+    public void addMedia(Aims_Project.hust.soict.hedspi.aims.media.Media media) {
+
         if (itemsOrdered.contains(media)) {
             System.out.println("Item is already in the cart.");
-        } else {
-            itemsOrdered.add(media);
-            System.out.println("Added: " + media.getTitle());
+            return;
         }
+
+        itemsOrdered.add(media);
+        System.out.println("Added: " + media.getTitle());
     }
 
-    public void removeMedia(Aims_Project.hust.soict.hedspi.aims.media.media media) {
+    // ===== REMOVE =====
+    public void removeMedia(Aims_Project.hust.soict.hedspi.aims.media.Media media) {
+
         if (itemsOrdered.contains(media)) {
             itemsOrdered.remove(media);
             System.out.println("Removed: " + media.getTitle());
         } else {
-            System.out.println("Item not found in the cart.");
+            System.out.println("Item not found in cart.");
         }
     }
 
+    // ===== TOTAL COST =====
     public float totalCost() {
+
         float total = 0;
-        for (Aims_Project.hust.soict.hedspi.aims.media.media m : itemsOrdered) {
+
+        for (Aims_Project.hust.soict.hedspi.aims.media.Media m : itemsOrdered) {
             total += m.getCost();
         }
+
         return total;
     }
 
+    // ===== PRINT CART =====
     public void printCart() {
-        System.out.println("***********************CART***********************");
-        System.out.println("Ordered Items:");
+
+        System.out.println("*********************** CART ***********************");
 
         for (int i = 0; i < itemsOrdered.size(); i++) {
             System.out.println((i + 1) + ". " + itemsOrdered.get(i));
         }
 
         System.out.println("Total cost: " + totalCost() + " $");
-        System.out.println("***************************************************");
+
+        System.out.println("****************************************************");
     }
 
-    public Aims_Project.hust.soict.hedspi.aims.media.media findByTitle(String title) {
-        for (Aims_Project.hust.soict.hedspi.aims.media.media m : itemsOrdered) {
-            if (m.getTitle() != null && m.getTitle().equalsIgnoreCase(title)) {
+    // ===== FIND =====
+    public Aims_Project.hust.soict.hedspi.aims.media.Media findByTitle(String title) {
+
+        for (Aims_Project.hust.soict.hedspi.aims.media.Media m : itemsOrdered) {
+
+            if (m.getTitle() != null
+                    && m.getTitle().equalsIgnoreCase(title)) {
+
                 return m;
             }
         }
+
         return null;
     }
 
+    // ===== FILTER BY ID =====
     public void filterById(int id) {
-        System.out.println("Filter by ID = " + id);
+
         boolean found = false;
 
-        for (Aims_Project.hust.soict.hedspi.aims.media.media m : itemsOrdered) {
+        for (Aims_Project.hust.soict.hedspi.aims.media.Media m : itemsOrdered) {
+
             if (m.getId() == id) {
                 System.out.println(m);
                 found = true;
@@ -66,44 +85,57 @@ public class Cart {
         }
 
         if (!found) {
-            System.out.println("No media with that ID found.");
+            System.out.println("No media found.");
         }
     }
 
+    // ===== FILTER BY TITLE =====
     public void filterByTitle(String title) {
-        System.out.println("Filter by title = " + title);
+
         boolean found = false;
 
-        for (Aims_Project.hust.soict.hedspi.aims.media.media m : itemsOrdered) {
-            if (m.getTitle() != null && m.getTitle().equalsIgnoreCase(title)) {
+        for (Aims_Project.hust.soict.hedspi.aims.media.Media m : itemsOrdered) {
+
+            if (m.getTitle() != null
+                    && m.getTitle().equalsIgnoreCase(title)) {
+
                 System.out.println(m);
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("No media with that title found.");
+            System.out.println("No media found.");
         }
     }
 
+    // ===== SORT =====
     public void sortByTitle() {
-        if (Aims_Project.hust.soict.hedspi.aims.media.media.COMPARE_BY_TITLE_COST != null) {
-            Collections.sort(itemsOrdered, Aims_Project.hust.soict.hedspi.aims.media.media.COMPARE_BY_TITLE_COST);
-        }
+
+        Collections.sort(
+                itemsOrdered,
+                Aims_Project.hust.soict.hedspi.aims.media.Media.COMPARE_BY_TITLE_COST
+        );
+
         System.out.println("Cart sorted by title.");
     }
 
     public void sortByCost() {
-        if (Aims_Project.hust.soict.hedspi.aims.media.media.COMPARE_BY_COST_TITLE != null) {
-            Collections.sort(itemsOrdered, Aims_Project.hust.soict.hedspi.aims.media.media.COMPARE_BY_COST_TITLE);
-        }
+
+        Collections.sort(
+                itemsOrdered,
+                Aims_Project.hust.soict.hedspi.aims.media.Media.COMPARE_BY_COST_TITLE
+        );
+
         System.out.println("Cart sorted by cost.");
     }
 
+    // ===== COUNT =====
     public int getItemCount() {
         return itemsOrdered.size();
     }
 
+    // ===== CLEAR =====
     public void clear() {
         itemsOrdered.clear();
     }

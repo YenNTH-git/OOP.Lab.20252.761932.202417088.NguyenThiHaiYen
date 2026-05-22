@@ -1,64 +1,88 @@
-package Aims_Project.hust.soict.hedspi.aims.media;
+package media;
 
 import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable {
 
     private String artist;
-    private ArrayList<Track> tracks = new ArrayList<Track>();
+    private ArrayList<Track> tracks = new ArrayList<>();
 
-    // ===== CONSTRUCTOR 1 (GIỮ NGUYÊN NHƯ MÀY) =====
+    // Constructor đơn giản
     public CompactDisc(String title, String category, float cost, String artist) {
         super(0, title, category, cost, 0, "unknown");
         this.artist = artist;
     }
 
-    // ===== CONSTRUCTOR FULL (FIX LỖI 7 ARGS) =====
+    // Constructor đầy đủ
     public CompactDisc(int id, String title, String category,
-                       float cost, int length, String director, String artist) {
+                       float cost, int length,
+                       String director, String artist) {
+
         super(id, title, category, cost, length, director);
         this.artist = artist;
     }
 
-    // ===== TRACKS =====
+    // Getter
+    public String getArtist() {
+        return artist;
+    }
+
+    // Add track
     public void addTrack(Track track) {
         if (!tracks.contains(track)) {
             tracks.add(track);
+            System.out.println("Track added.");
         } else {
-            System.out.println("Track " + track.getTitle() + " đã có trong CD.");
+            System.out.println("Track already exists.");
         }
     }
 
+    // Remove track
     public void removeTrack(Track track) {
         if (tracks.contains(track)) {
             tracks.remove(track);
+            System.out.println("Track removed.");
         } else {
-            System.out.println("Track không tồn tại trong CD.");
+            System.out.println("Track does not exist.");
         }
     }
 
-    // ===== LENGTH =====
+    // CD length = tổng length các track
     @Override
     public int getLength() {
-        int totalLength = 0;
+        int total = 0;
+
         for (Track track : tracks) {
-            totalLength += track.getLength();
+            total += track.getLength();
         }
-        return totalLength;
+
+        return total;
     }
 
-    // ===== PLAY =====
+    // Play CD
     @Override
     public void play() {
-        if (this.getLength() > 0) {
-            System.out.println("Đang phát CD: " + this.getTitle()
-                    + " của nghệ sĩ: " + artist);
 
-            for (Track track : tracks) {
-                track.play();
-            }
-        } else {
-            System.out.println("Lỗi: CD này không thể phát được.");
+        if (getLength() <= 0) {
+            System.out.println("ERROR: CD length is non-positive");
+            return;
         }
+
+        System.out.println("Playing CD: " + getTitle());
+        System.out.println("CD length: " + getLength());
+
+        for (Track track : tracks) {
+            track.play();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "CD - "
+                + getTitle() + " - "
+                + getCategory() + " - "
+                + artist + " - "
+                + getLength() + " - "
+                + getCost();
     }
 }

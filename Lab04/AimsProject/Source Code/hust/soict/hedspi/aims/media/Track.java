@@ -1,4 +1,4 @@
-package Aims_Project.hust.soict.hedspi.aims.media;
+package media;
 
 public class Track implements Playable {
 
@@ -10,34 +10,55 @@ public class Track implements Playable {
         this.length = length;
     }
 
-    public String getTitle() { return title; }
-    public int getLength() { return length; }
+    // ===== GETTER =====
+    public String getTitle() {
+        return title;
+    }
 
-    // ===== IMPORTANT FIX: equals =====
+    public int getLength() {
+        return length;
+    }
+
+    // ===== equals =====
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Track)) return false;
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Track)) {
+            return false;
+        }
 
         Track other = (Track) obj;
 
-        if (this.title == null) return other.title == null;
-        return this.title.equals(other.title) && this.length == other.length;
+        if (title == null) {
+            return other.title == null;
+        }
+
+        return title.equals(other.title)
+                && length == other.length;
     }
 
-    // ===== DEBUG SUPPORT =====
+    // ===== toString =====
     @Override
     public String toString() {
-        return "Track - " + title + " - " + length;
+        return "Track - "
+                + title + " - "
+                + length;
     }
 
+    // ===== play =====
     @Override
     public void play() {
-        if (this.length > 0) {
-            System.out.println("Đang phát Track: " + this.getTitle());
-            System.out.println("Thời lượng Track: " + this.getLength());
-        } else {
-            System.out.println("Lỗi: Track này không thể phát được (thời lượng <= 0).");
+
+        if (length <= 0) {
+            System.out.println("ERROR: Track length is non-positive");
+            return;
         }
+
+        System.out.println("Playing track: " + title);
+        System.out.println("Track length: " + length);
     }
 }
