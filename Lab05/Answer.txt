@@ -1,0 +1,35 @@
+Câu hỏi mục 1.3: So sánh các thành phần giữa Swing và AWT
+
+1. Về vùng chứa cấp cao nhất (Top-level containers):
+   - AWT: Sử dụng lớp 'Frame'. Các thành phần giao diện (components) có thể được thêm (add) trực tiếp vào Frame này.
+   - Swing: Sử dụng lớp 'JFrame'. Các thành phần không được phép thêm trực tiếp vào JFrame mà bắt buộc phải thêm vào vùng chứa nội dung của nó, gọi là 'content-pane' (được lấy ra thông qua hàm getContentPane()).
+
+2. Về tên lớp của các thành phần giao diện (Component Class Names):
+   - AWT: Tên các thành phần được viết bình thường (Ví dụ: Label, TextField, Button). Đây là các thành phần "nặng" (heavyweight) vì chúng phụ thuộc hoàn toàn vào giao diện của hệ điều hành gốc đang chạy.
+   - Swing: Tên các thành phần luôn có thêm tiền tố chữ 'J' ở đầu (Ví dụ: JLabel, JTextField, JButton). Đây là các thành phần "nhẹ" (lightweight) được vẽ hoàn toàn bằng mã nguồn Java, giúp giao diện hiển thị đồng nhất và đẹp mắt trên mọi hệ điều hành (Windows, macOS, Linux).
+
+Câu hỏi mục 2.2.3: Giải thích hoặc hoàn thiện logic cho nút bấm DEL và C trong NumberGrid.
+
+1. For the "C" (Clear) button:
+   - Logic: Khi người dùng nhấn nút C, toàn bộ nội dung hiện tại trên màn hình hiển thị (tfDisplay) sẽ bị xóa sạch, đưa ô nhập về trạng thái trống rỗng.
+		tfDisplay.setText("");
+
+2. For the "DEL" (Delete) button:
+   - Logic: Khi người dùng nhấn nút DEL, chương trình sẽ xóa đi ký tự cuối cùng ở bên phải chuỗi văn bản đang hiển thị. Tuy nhiên, cần phải kiểm tra điều kiện chuỗi đó không bị rỗng để tránh gặp lỗi StringIndexOutOfBoundsException.
+		String currentText = tfDisplay.getText();
+		if (currentText.length() > 0) {
+		    // Cắt bỏ ký tự cuối cùng của chuỗi
+		    tfDisplay.setText(currentText.substring(0, currentText.length() - 1));
+		}
+
+Câu hỏi mục 4: Cơ chế hoạt động của ứng dụng vẽ đồ họa (Painter) bằng JavaFX
+
+1. Cơ chế tạo hiệu ứng nét vẽ liên tục khi kéo chuột (Mouse Dragged):
+   - Logic: Mỗi khi người dùng nhấn giữ và rê chuột trên vùng vẽ (drawingAreaPane), sự kiện 'drawingAreaMouseDragged' sẽ liên tục được kích hoạt. Tại mỗi thời điểm, hệ thống sẽ lấy ra tọa độ chính xác của con trỏ chuột và khởi tạo một đối tượng hình tròn nhỏ ('Circle') có bán kính bằng 4 tại đó. Hình tròn này ngay lập tức được add vào danh sách phần tử con của Pane. Do tần suất bắt sự kiện của chuột rất nhanh, các hình tròn nhỏ này nằm đè và nối tiếp sát nhau, tạo ra hiệu ứng đánh lừa thị giác giống như một nét vẽ liền mạch.
+
+2. Logic tương tác và xử lý của công cụ Bút vẽ (Pen) và Cục tẩy (Eraser):
+   - Sự tương tác: Cả hai nút Pen và Eraser đều là 'RadioButton' và được gán chung vào một nhóm duy nhất là 'ToggleGroup'. Điều này đảm bảo tính loại trừ lẫn nhau: người dùng chỉ được phép chọn một trong hai công cụ tại một thời điểm (chọn cái này thì cái kia tự nhả ra).
+   - Logic của Cục tẩy (Eraser): Bản chất cục tẩy trong cấu trúc đồ họa Scene Graph của JavaFX không hề xóa bỏ hay phá hủy các hình tròn màu đen đã vẽ trước đó. Thay vào đó, khi chuyển sang chế độ Eraser, hệ thống sẽ đổi màu tô (Fill Color) của các hình tròn mới được tạo ra thành màu TRẮNG ('Color.WHITE') - trùng với màu nền của bảng vẽ. Khi người dùng di chuột để "xóa", thực chất là họ đang vẽ các hình tròn màu trắng đè lên các nét vẽ màu đen, che khuất chúng đi.
+
+3. Logic đặt lại bảng vẽ của nút "Clear":
+   - Logic: Khi người dùng bấm nút Clear, hệ thống gọi hàm 'drawingAreaPane.getChildren().clear()'. Lệnh này sẽ quét sạch toàn bộ danh sách các đối tượng con (tất cả các hình tròn nhỏ đã vẽ) ra khỏi cây phân cấp đồ họa (Scene Graph) của vùng vẽ, đưa bảng trở về trạng thái trống rỗng nguyên bản.
