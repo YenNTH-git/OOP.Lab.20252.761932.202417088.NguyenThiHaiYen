@@ -4,15 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import hust.soict.hedspi.aims.store.Store;
+import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
-import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 
 public class StoreScreen extends JFrame {
     private Store store;
+    private Cart cart;
 
     // --- FIGURE 10: CONSTRUCTOR ---
-    public StoreScreen(Store store) {
+    public StoreScreen(Store store, Cart cart) {
         this.store = store;
+        this.cart = cart;
         Container cp = getContentPane();
         cp.setLayout(new BorderLayout());
 
@@ -45,7 +47,12 @@ public class StoreScreen extends JFrame {
 
         JMenu menuOptions = new JMenu("Options");
         menuOptions.add(smUpdateStore);
-        menuOptions.add(new JMenuItem("View cart"));
+
+        // Sự kiện Menu View cart -> Bật màn hình Giỏ hàng JavaFX
+        JMenuItem viewCartMenu = new JMenuItem("View cart");
+        viewCartMenu.addActionListener(e -> new CartScreen(cart));
+        menuOptions.add(viewCartMenu);
+
         menuOptions.add(new JMenuItem("View store"));
 
         menu.add(menuOptions);
@@ -61,14 +68,17 @@ public class StoreScreen extends JFrame {
         title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
         title.setForeground(Color.CYAN);
 
-        JButton cart = new JButton("View cart");
-        cart.setPreferredSize(new Dimension(100, 50));
-        cart.setMaximumSize(new Dimension(100, 50));
+        JButton btnCart = new JButton("View cart");
+        btnCart.setPreferredSize(new Dimension(100, 50));
+        btnCart.setMaximumSize(new Dimension(100, 50));
+
+        // Sự kiện nút bấm View cart trên Header -> Bật màn hình Giỏ hàng JavaFX
+        btnCart.addActionListener(e -> new CartScreen(cart));
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
         header.add(Box.createHorizontalGlue());
-        header.add(cart);
+        header.add(btnCart);
         header.add(Box.createRigidArea(new Dimension(10, 10)));
 
         return header;
@@ -83,23 +93,10 @@ public class StoreScreen extends JFrame {
         // Lấy tối đa 9 sản phẩm đầu tiên để hiển thị vừa vặn khung lưới 3x3
         int limit = Math.min(mediaInStore.size(), 9);
         for (int i = 0; i < limit; i++) {
-            MediaStore cell = new MediaStore(mediaInStore.get(i));
+            MediaStore cell = new MediaStore(mediaInStore.get(i), cart);
             center.add(cell);
         }
 
         return center;
-    }
-
-    // Hàm main mẫu chạy hoàn hảo không lo lỗi Constructor gạch đỏ
-    public static void main(String[] args) {
-        Store mockStore = new Store();
-
-        // Gọi trực tiếp cấu trúc dữ liệu mẫu của bài Lab nhờ constructor 5 tham số vừa bổ sung
-        mockStore.addMedia(new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 88, 19.95f));
-        mockStore.addMedia(new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 124, 24.95f));
-        mockStore.addMedia(new DigitalVideoDisc("Aladdin", "Animation", "John Musker", 90, 18.99f));
-
-        // Bật màn hình lên
-        new StoreScreen(mockStore);
     }
 }

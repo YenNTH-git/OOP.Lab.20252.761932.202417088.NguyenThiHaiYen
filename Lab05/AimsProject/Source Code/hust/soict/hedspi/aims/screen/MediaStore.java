@@ -6,13 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
+import hust.soict.hedspi.aims.cart.Cart;
 
 public class MediaStore extends JPanel {
     private Media media;
+    private Cart cart;
 
     // --- FIGURE 16 & SECTION 3.2: CONSTRUCTOR CÓ XỬ LÝ SỰ KIỆN ---
-    public MediaStore(Media media) {
+    public MediaStore(Media media, Cart cart) {
         this.media = media;
+        this.cart = cart;
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // 1. Hiển thị Tiêu đề (Title)
@@ -34,7 +37,8 @@ public class MediaStore extends JPanel {
         btnAddToCart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Hiển thị hộp thoại nhỏ thông báo (Bạn sẽ kết nối với lớp Cart ở các bài tập tiếp theo)
+                // Thêm sản phẩm vào giỏ hàng thực tế của hệ thống
+                cart.addMedia(media);
                 JOptionPane.showMessageDialog(null,
                         "Added " + media.getTitle() + " to cart successfully!",
                         "Add to Cart",
