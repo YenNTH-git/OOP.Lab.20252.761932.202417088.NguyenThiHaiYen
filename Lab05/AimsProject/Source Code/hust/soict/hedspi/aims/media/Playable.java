@@ -1,6 +1,8 @@
 package hust.soict.hedspi.aims.media;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 public interface Playable {
-    // Phương thức prototype bắt buộc các lớp con phải triển khai
-    public void play();
+    // Chỉ giữ lại duy nhất 1 phương thức này
+    public void play() throws PlayerException;
 }

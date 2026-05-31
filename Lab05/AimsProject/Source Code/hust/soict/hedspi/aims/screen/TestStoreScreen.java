@@ -13,20 +13,20 @@ public class TestStoreScreen {
         Cart mockCart = new Cart();
 
         // 1. Nạp sản phẩm mẫu vào cửa hàng (Store)
-        // DVD: Title, Category, Director, Length, Cost
-        mockStore.addMedia(new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 88, 19.95f));
-        mockStore.addMedia(new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 124, 24.95f));
 
-        // FIX BOOK: Truyền thêm ID (ví dụ: 1) vào vị trí đầu tiên đúng như Constructor của bạn yêu cầu
-        Book javaBook = new Book(1, "Java Programming", "Education", 45.00f);
-        mockStore.addMedia(javaBook);
+        // DVD: Sử dụng constructor mới khớp với yêu cầu Lab
+        // Thứ tự: Title, Category, Cost, Director, Length
+        mockStore.addMedia(new DigitalVideoDisc("The Lion King", "Animation", 19.95f, "Roger Allers", 88));
+        mockStore.addMedia(new DigitalVideoDisc("Star Wars", "Science Fiction", 24.95f, "George Lucas", 124));
 
-        // CD: Title, Category, Cost, Artist
-        CompactDisc thrillerCD = new CompactDisc("Thriller", "Pop", 15.50f, "Michael Jackson");
-        mockStore.addMedia(thrillerCD);
+        // BOOK: Sử dụng constructor mới (Title, Category, Cost, Authors)
+        mockStore.addMedia(new Book("Java Programming", "Education", 45.00f, "Author Name"));
 
-        // 2. Nạp sẵn một đĩa phim vào giỏ hàng (Cart) để kiểm tra cơ chế hiển thị danh sách TableView
-        mockCart.addMedia(new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 88, 19.95f));
+        // CD: Sử dụng constructor mới (Title, Category, Cost, Artist, Director)
+        mockStore.addMedia(new CompactDisc("Thriller", "Pop", 15.50f, "Michael Jackson", "Director Name"));
+
+        // 2. Nạp sẵn một đĩa phim vào giỏ hàng (Cart)
+        mockCart.addMedia(new DigitalVideoDisc("The Lion King", "Animation", 19.95f, "Roger Allers", 88));
 
         // 3. Khởi chạy màn hình Store tích hợp
         new StoreScreen(mockStore, mockCart);

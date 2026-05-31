@@ -8,10 +8,10 @@ import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
 
 public class StoreScreen extends JFrame {
-    private Store store;
-    private Cart cart;
+    private final Store store;
+    private final Cart cart;
+    private JMenu smUpdateStore; // Khai báo tại đây để sửa lỗi 'Cannot resolve symbol'
 
-    // --- FIGURE 10: CONSTRUCTOR ---
     public StoreScreen(Store store, Cart cart) {
         this.store = store;
         this.cart = cart;
@@ -27,7 +27,6 @@ public class StoreScreen extends JFrame {
         setVisible(true);
     }
 
-    // --- FIGURE 11: CREATE NORTH SECTION ---
     JPanel createNorth() {
         JPanel north = new JPanel();
         north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -36,11 +35,10 @@ public class StoreScreen extends JFrame {
         return north;
     }
 
-    // --- FIGURE 12: CREATE MENU BAR ---
     JMenuBar createMenuBar() {
         JMenuBar menu = new JMenuBar();
 
-        JMenu smUpdateStore = new JMenu("Update Store");
+        smUpdateStore = new JMenu("Update Store");
         smUpdateStore.add(new JMenuItem("Add Book"));
         smUpdateStore.add(new JMenuItem("Add CD"));
         smUpdateStore.add(new JMenuItem("Add DVD"));
@@ -48,18 +46,22 @@ public class StoreScreen extends JFrame {
         JMenu menuOptions = new JMenu("Options");
         menuOptions.add(smUpdateStore);
 
-        // Sự kiện Menu View cart -> Bật màn hình Giỏ hàng JavaFX
         JMenuItem viewCartMenu = new JMenuItem("View cart");
-        viewCartMenu.addActionListener(e -> new CartScreen(cart));
+        viewCartMenu.addActionListener(_ -> new CartScreen(cart));
         menuOptions.add(viewCartMenu);
 
-        menuOptions.add(new JMenuItem("View store"));
+        // Gán sự kiện để View store làm mới màn hình
+        JMenuItem viewStoreMenu = new JMenuItem("View store");
+        viewStoreMenu.addActionListener(_ -> {
+            this.dispose();
+            new StoreScreen(store, cart);
+        });
+        menuOptions.add(viewStoreMenu);
 
         menu.add(menuOptions);
         return menu;
     }
 
-    // --- FIGURE 14: CREATE HEADER ---
     JPanel createHeader() {
         JPanel header = new JPanel();
         header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
@@ -71,9 +73,7 @@ public class StoreScreen extends JFrame {
         JButton btnCart = new JButton("View cart");
         btnCart.setPreferredSize(new Dimension(100, 50));
         btnCart.setMaximumSize(new Dimension(100, 50));
-
-        // Sự kiện nút bấm View cart trên Header -> Bật màn hình Giỏ hàng JavaFX
-        btnCart.addActionListener(e -> new CartScreen(cart));
+        btnCart.addActionListener(_ -> new CartScreen(cart));
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
@@ -84,15 +84,14 @@ public class StoreScreen extends JFrame {
         return header;
     }
 
-    // --- FIGURE 15: CREATE CENTER (GRID OF ITEMS) ---
     JPanel createCenter() {
         JPanel center = new JPanel();
-        center.setLayout(new GridLayout(3, 3, 10, 10)); // Lưới 3 hàng, 3 cột
+        center.setLayout(new GridLayout(3, 3, 10, 10));
 
         ArrayList<Media> mediaInStore = store.getItemsInStore();
-        // Lấy tối đa 9 sản phẩm đầu tiên để hiển thị vừa vặn khung lưới 3x3
         int limit = Math.min(mediaInStore.size(), 9);
         for (int i = 0; i < limit; i++) {
+            // Lưu ý: Đảm bảo class MediaStore đã được định nghĩa trong cùng package
             MediaStore cell = new MediaStore(mediaInStore.get(i), cart);
             center.add(cell);
         }

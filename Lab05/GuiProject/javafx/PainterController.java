@@ -1,4 +1,4 @@
-package hust.soict.hedspi.javafx;
+package javafx;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,45 +1,34 @@
 package hust.soict.hedspi.aims.media;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 public class DigitalVideoDisc extends Disc implements Playable {
 
-    // Constructor mặc định không tham số gốc của bạn
-    public DigitalVideoDisc() {
-        super();
-    }
-
-    // Constructor 6 tham số gốc của bạn (có id)
-    public DigitalVideoDisc(int id, String title, String category,
-                            float cost, int length, String director) {
-
-        super(id, title, category, cost, length, director);
-    }
-
-    // --- BỔ SUNG: Constructor 5 tham số khớp chính xác với dữ liệu mẫu bài Lab ---
-    // Tự động truyền ID mặc định là 0 lên lớp cha Disc/Media
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+    // Constructor 5 tham số để khớp với yêu cầu khởi tạo mới
+    // Thứ tự: Title, Category, Cost, Director, Length
+    public DigitalVideoDisc(String title, String category, float cost, String director, int length) {
         super(0, title, category, cost, length, director);
     }
 
+    // Constructor gốc (giữ lại nếu cần cho các phần khác trong project)
+    public DigitalVideoDisc(int id, String title, String category, float cost, int length, String director) {
+        super(id, title, category, cost, length, director);
+    }
+
     @Override
-    public void play() {
-
-        if (getLength() <= 0) {
-            System.out.println("ERROR: DVD length is non-positive");
-            return;
+    public void play() throws PlayerException {
+        if (this.getLength() > 0) {
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+        } else {
+            // Ném ngoại lệ theo yêu cầu bài Lab (phần 13.2)
+            throw new PlayerException("ERROR: DVD length is non-positive!");
         }
-
-        System.out.println("Playing DVD: " + getTitle());
-        System.out.println("DVD length: " + getLength());
     }
 
     @Override
     public String toString() {
-
-        return "DVD - "
-                + getTitle() + " - "
-                + getCategory() + " - "
-                + getDirector() + " - "
-                + getLength() + " min - "
-                + getCost() + " $";
+        return String.format("DVD - %s - %s - %s - %d min: %.2f $",
+                this.getTitle(), this.getCategory(), this.getDirector(), this.getLength(), this.getCost());
     }
 }
