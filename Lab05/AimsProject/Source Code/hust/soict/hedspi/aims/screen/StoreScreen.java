@@ -3,6 +3,7 @@ package hust.soict.hedspi.aims.screen;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+
 import hust.soict.hedspi.aims.store.Store;
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
@@ -10,70 +11,87 @@ import hust.soict.hedspi.aims.media.Media;
 public class StoreScreen extends JFrame {
     private final Store store;
     private final Cart cart;
-    private JMenu smUpdateStore; // Khai báo tại đây để sửa lỗi 'Cannot resolve symbol'
 
     public StoreScreen(Store store, Cart cart) {
         this.store = store;
         this.cart = cart;
-        Container cp = getContentPane();
-        cp.setLayout(new BorderLayout());
 
-        cp.add(createNorth(), BorderLayout.NORTH);
-        cp.add(createCenter(), BorderLayout.CENTER);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Store");
         setSize(1024, 768);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        setLayout(new BorderLayout());
+
+        add(createNorth(), BorderLayout.NORTH);
+        add(createCenter(), BorderLayout.CENTER);
+
         setVisible(true);
     }
 
-    JPanel createNorth() {
+    // ================= MENU BAR =================
+    private JMenuBar createMenuBar() {
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu optionsMenu = new JMenu("Options");
+
+        // ===== Update Store =====
+        JMenu updateStore = new JMenu("Update Store");
+
+        JMenuItem addBook = new JMenuItem("Add Book");
+        addBook.addActionListener(e -> new AddBookToStoreScreen(store));
+
+        JMenuItem addCD = new JMenuItem("Add CD");
+        addCD.addActionListener(e -> new AddCompactDiscToStoreScreen(store));
+
+        JMenuItem addDVD = new JMenuItem("Add DVD");
+        addDVD.addActionListener(e -> new AddDigitalVideoDiscToStoreScreen(store));
+
+        updateStore.add(addBook);
+        updateStore.add(addCD);
+        updateStore.add(addDVD);
+
+        optionsMenu.add(updateStore);
+
+        // ===== View Cart =====
+        JMenuItem viewCart = new JMenuItem("View Cart");
+        viewCart.addActionListener(e -> new CartScreen(cart));
+        optionsMenu.add(viewCart);
+
+        // ===== View Store (FIXED) =====
+        JMenuItem viewStore = new JMenuItem("View Store");
+        viewStore.addActionListener(e -> {
+            dispose();
+            SwingUtilities.invokeLater(() -> new StoreScreen(store, cart));
+        });
+        optionsMenu.add(viewStore);
+
+        menuBar.add(optionsMenu);
+        return menuBar;
+    }
+
+    // ================= NORTH =================
+    private JPanel createNorth() {
         JPanel north = new JPanel();
         north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
+
         north.add(createMenuBar());
         north.add(createHeader());
+
         return north;
     }
 
-    JMenuBar createMenuBar() {
-        JMenuBar menu = new JMenuBar();
-
-        smUpdateStore = new JMenu("Update Store");
-        smUpdateStore.add(new JMenuItem("Add Book"));
-        smUpdateStore.add(new JMenuItem("Add CD"));
-        smUpdateStore.add(new JMenuItem("Add DVD"));
-
-        JMenu menuOptions = new JMenu("Options");
-        menuOptions.add(smUpdateStore);
-
-        JMenuItem viewCartMenu = new JMenuItem("View cart");
-        viewCartMenu.addActionListener(_ -> new CartScreen(cart));
-        menuOptions.add(viewCartMenu);
-
-        // Gán sự kiện để View store làm mới màn hình
-        JMenuItem viewStoreMenu = new JMenuItem("View store");
-        viewStoreMenu.addActionListener(_ -> {
-            this.dispose();
-            new StoreScreen(store, cart);
-        });
-        menuOptions.add(viewStoreMenu);
-
-        menu.add(menuOptions);
-        return menu;
-    }
-
-    JPanel createHeader() {
+    // ================= HEADER =================
+    private JPanel createHeader() {
         JPanel header = new JPanel();
         header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
 
         JLabel title = new JLabel("AIMS");
-        title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
-        title.setForeground(Color.CYAN);
+        title.setFont(new Font("Arial", Font.BOLD, 48));
+        title.setForeground(Color.BLUE);
 
         JButton btnCart = new JButton("View cart");
-        btnCart.setPreferredSize(new Dimension(100, 50));
-        btnCart.setMaximumSize(new Dimension(100, 50));
-        btnCart.addActionListener(_ -> new CartScreen(cart));
+        btnCart.addActionListener(e -> new CartScreen(cart));
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
@@ -84,16 +102,18 @@ public class StoreScreen extends JFrame {
         return header;
     }
 
-    JPanel createCenter() {
+    // ================= CENTER =================
+    private JPanel createCenter() {
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(3, 3, 10, 10));
 
-        ArrayList<Media> mediaInStore = store.getItemsInStore();
-        int limit = Math.min(mediaInStore.size(), 9);
+        ArrayList<Media> list = store.getItemsInStore();
+
+        int limit = Math.min(list.size(), 9);
+
         for (int i = 0; i < limit; i++) {
-            // Lưu ý: Đảm bảo class MediaStore đã được định nghĩa trong cùng package
-            MediaStore cell = new MediaStore(mediaInStore.get(i), cart);
-            center.add(cell);
+            Media media = list.get(i);
+            center.add(new MediaStore(media, cart, store));
         }
 
         return center;

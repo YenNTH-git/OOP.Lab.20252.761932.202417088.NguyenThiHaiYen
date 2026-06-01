@@ -4,6 +4,8 @@ import java.util.Comparator;
 
 public abstract class Media {
 
+    private static int nextId = 1;
+
     protected int id;
     protected String title;
     protected String category;
@@ -13,7 +15,13 @@ public abstract class Media {
     }
 
     public Media(int id, String title, String category, float cost) {
-        this.id = id;
+
+        if (id <= 0) {
+            this.id = nextId++;
+        } else {
+            this.id = id;
+        }
+
         this.title = title;
         this.category = category;
         this.cost = cost;

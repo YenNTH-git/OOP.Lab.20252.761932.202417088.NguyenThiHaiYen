@@ -33,3 +33,32 @@ Câu hỏi mục 4: Cơ chế hoạt động của ứng dụng vẽ đồ họa
 
 3. Logic đặt lại bảng vẽ của nút "Clear":
    - Logic: Khi người dùng bấm nút Clear, hệ thống gọi hàm 'drawingAreaPane.getChildren().clear()'. Lệnh này sẽ quét sạch toàn bộ danh sách các đối tượng con (tất cả các hình tròn nhỏ đã vẽ) ra khỏi cây phân cấp đồ họa (Scene Graph) của vùng vẽ, đưa bảng trở về trạng thái trống rỗng nguyên bản.
+
+Câu hỏi mục 12: Trình bày cơ chế xử lý ngoại lệ trong hệ thống AIMS
+
+   - Xử lý ngoại lệ giúp chương trình không bị crash khi xảy ra lỗi runtime.
+   - Sử dụng try-catch và throw để xử lý các trường hợp như nhập sai dữ liệu hoặc vượt giới hạn giỏ hàng.
+   - Exception có thể được bắt và hiển thị thông báo cho người dùng.
+
+Câu hỏi mục 13: Trình bày về lớp ngoại lệ PlayerException trong AIMS Project
+
+   - PlayerException là ngoại lệ tự định nghĩa dùng khi phát media không hợp lệ.
+   - Nếu length <= 0 thì play() sẽ throw PlayerException.
+   - Interface Playable phải khai báo throws PlayerException.
+   - CompactDisc có thể throw hoặc catch PlayerException khi duyệt Track.
+=> Mục đích: đảm bảo chỉ media hợp lệ được phát.
+
+Câu hỏi mục 15: Giải thích phương thức equals() trong lớp Media
+
+   - Hai Media được coi là bằng nhau nếu có cùng title.
+   - Khi override equals():
+	+ phải kiểm tra null
+	+ phải kiểm tra instanceof
+  => sau đó so sánh title
+
+Câu hỏi mục 17: Mô tả cây phân cấp ngoại lệ trong AIMS Project
+
+   - Các exception tự định nghĩa nên kế thừa từ Exception.
+   - Có thể tạo cây phân cấp để quản lý lỗi rõ ràng.
+   - Ví dụ: MediaException là lớp cha, PlayerException kế thừa từ MediaException.
+   - Giúp hệ thống dễ mở rộng và xử lý lỗi theo từng loại.

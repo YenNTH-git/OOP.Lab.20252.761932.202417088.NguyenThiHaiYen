@@ -3,8 +3,6 @@ package hust.soict.hedspi.aims.screen;
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CartScreenController {
+
     private final Cart cart;
 
     @FXML
@@ -41,74 +40,126 @@ public class CartScreenController {
 
     @FXML
     private void initialize() {
-        // 1. Cấu hình cột hiển thị
+
         colMediaTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colMediaCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colMediaCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
-        // 2. Cấu hình FilteredList (Phần 10)
-        FilteredList<Media> filteredData = new FilteredList<>(this.cart.getItemsOrdered(), p -> true);
+        FilteredList<Media> filteredData =
+                new FilteredList<>(cart.getItemsOrdered(), p -> true);
 
-        tfFilter.textProperty().addListener((observable, oldValue, newValue) -> {
+        tfFilter.textProperty().addListener((obs, oldVal, newVal) -> {
+
             filteredData.setPredicate(media -> {
-                if (newValue == null || newValue.trim().isEmpty()) {
-                    return true;
-                }
-                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (newVal == null || newVal.isEmpty()) return true;
+
+                String key = newVal.toLowerCase();
+
                 if (radioBtnFilterTitle.isSelected()) {
-                    return media.getTitle().toLowerCase().contains(lowerCaseFilter);
-                } else if (radioBtnFilterId.isSelected()) {
-                    return String.valueOf(media.getId()).contains(lowerCaseFilter);
+                    return media.getTitle().toLowerCase().contains(key);
+                } else {
+                    return String.valueOf(media.getId()).contains(key);
                 }
-                return true;
             });
         });
 
         tblMedia.setItems(filteredData);
 
-        // 3. Cấu hình ẩn hiện nút (Phần 8)
         btnPlay.setVisible(false);
         btnRemove.setVisible(false);
 
-        tblMedia.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                updateButtonBar(newValue);
-            } else {
-                btnPlay.setVisible(false);
-                btnRemove.setVisible(false);
-            }
-        });
+        tblMedia.getSelectionModel().selectedItemProperty()
+                .addListener((obs, oldSel, newSel) -> {
+                    if (newSel != null) {
+                        btnRemove.setVisible(true);
+                        btnPlay.setVisible(newSel instanceof Playable);
+                    }
+                });
 
         updateTotalCost();
     }
 
-    private void updateButtonBar(Media media) {
-        btnRemove.setVisible(true);
-        btnPlay.setVisible(media instanceof Playable);
-    }
-
-    private void updateTotalCost() {
-        lblTotalCost.setText(String.format("%.2f $", cart.totalCost()));
-    }
-
+    // ================= REMOVE =================
     @FXML
     void btnRemovePressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         if (media != null) {
             cart.removeMedia(media);
             updateTotalCost();
+
+            tblMedia.setItems(cart.getItemsOrdered());
         }
     }
 
+    // ================= PLAY =================
     @FXML
     void btnPlayPressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
-        if (media != null && media instanceof Playable) {
+        if (media instanceof Playable) {
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Playing");
-            alert.setHeaderText(null);
             alert.setContentText("Now playing: " + media.getTitle());
-            alert.showAndWait();
+            alert.show();
         }
+    }
+
+    // ================= SORT TITLE =================
+    @FXML
+    void btnSortTitlePressed(ActionEvent event) {
+        cart.sortByTitle();
+
+        tblMedia.setItems(cart.getItemsOrdered());
+        tblMedia.refresh();
+
+        updateTotalCost();
+    }
+
+    // ================= SORT COST =================
+    @FXML
+    void btnSortCostPressed(ActionEvent event) {
+        cart.sortByCost();
+
+        tblMedia.setItems(cart.getItemsOrdered());
+        tblMedia.refresh();
+
+        updateTotalCost();
+    }
+
+    // ================= PLACE ORDER (NEW) =================
+    @FXML
+    void btnPlaceOrderPressed(ActionEvent event) {
+
+        if (cart.getItemsOrdered().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Cart is empty");
+            alert.setContentText("Please add items before placing order!");
+            alert.showAndWait();
+
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Order placed");
+        alert.setContentText("Your order has been placed successfully!");
+        alert.showAndWait();
+
+        cart.clear(); // clear cart
+
+        tblMedia.getItems().clear(); // clear UI
+        updateTotalCost();
+
+        btnPlay.setVisible(false);
+        btnRemove.setVisible(false);
+
+        tfFilter.clear();
+    }
+
+    private void updateTotalCost() {
+        lblTotalCost.setText(String.format("%.2f $", cart.totalCost()));
     }
 }

@@ -7,15 +7,13 @@ import javafx.collections.ObservableList;
 
 public class Cart {
 
-    // NÂNG CẤP CHÍ MẠNG: Đổi sang ObservableList để đồng bộ với JavaFX TableView theo yêu cầu của bài Lab
     private final ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
-    // HÀM BỔ SUNG: Cho phép Controller lấy danh sách ObservableList để đổ lên bảng hiển thị
     public ObservableList<Media> getItemsOrdered() {
         return this.itemsOrdered;
     }
 
-    // ===== ADD =====
+    // ================= ADD =================
     public void addMedia(Media media) {
         if (itemsOrdered.contains(media)) {
             System.out.println("Item is already in the cart.");
@@ -25,7 +23,7 @@ public class Cart {
         System.out.println("Added: " + media.getTitle());
     }
 
-    // ===== REMOVE =====
+    // ================= REMOVE =================
     public void removeMedia(Media media) {
         if (itemsOrdered.contains(media)) {
             itemsOrdered.remove(media);
@@ -35,7 +33,7 @@ public class Cart {
         }
     }
 
-    // ===== TOTAL COST =====
+    // ================= TOTAL COST =================
     public float totalCost() {
         float total = 0;
         for (Media m : itemsOrdered) {
@@ -44,7 +42,7 @@ public class Cart {
         return total;
     }
 
-    // ===== PRINT CART =====
+    // ================= PRINT =================
     public void printCart() {
         System.out.println("*********************** CART ***********************");
         for (int i = 0; i < itemsOrdered.size(); i++) {
@@ -54,7 +52,7 @@ public class Cart {
         System.out.println("****************************************************");
     }
 
-    // ===== FIND =====
+    // ================= FIND =================
     public Media findByTitle(String title) {
         for (Media m : itemsOrdered) {
             if (m.getTitle() != null && m.getTitle().equalsIgnoreCase(title)) {
@@ -64,7 +62,7 @@ public class Cart {
         return null;
     }
 
-    // ===== FILTER BY ID =====
+    // ================= FILTER =================
     public void filterById(int id) {
         boolean found = false;
         for (Media m : itemsOrdered) {
@@ -78,7 +76,6 @@ public class Cart {
         }
     }
 
-    // ===== FILTER BY TITLE =====
     public void filterByTitle(String title) {
         boolean found = false;
         for (Media m : itemsOrdered) {
@@ -92,23 +89,27 @@ public class Cart {
         }
     }
 
-    // ===== SORT =====
+    // ================= SORT (FIX CHO JAVAFX) =================
     public void sortByTitle() {
-        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        FXCollections.sort(itemsOrdered,
+                (a, b) -> a.getTitle().compareToIgnoreCase(b.getTitle()));
+
         System.out.println("Cart sorted by title.");
     }
 
     public void sortByCost() {
-        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        FXCollections.sort(itemsOrdered,
+                (a, b) -> Float.compare(a.getCost(), b.getCost()));
+
         System.out.println("Cart sorted by cost.");
     }
 
-    // ===== COUNT =====
+    // ================= COUNT =================
     public int getItemCount() {
         return itemsOrdered.size();
     }
 
-    // ===== CLEAR =====
+    // ================= CLEAR =================
     public void clear() {
         itemsOrdered.clear();
     }
