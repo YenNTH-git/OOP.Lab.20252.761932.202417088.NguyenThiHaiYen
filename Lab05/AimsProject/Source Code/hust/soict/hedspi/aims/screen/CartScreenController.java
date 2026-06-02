@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class CartScreenController {
 
     private final Cart cart;
+    private FilteredList<Media> filteredData;
 
     @FXML
     private TableView<Media> tblMedia;
@@ -45,7 +46,7 @@ public class CartScreenController {
         colMediaCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colMediaCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
-        FilteredList<Media> filteredData =
+        filteredData =
                 new FilteredList<>(cart.getItemsOrdered(), p -> true);
 
         tfFilter.textProperty().addListener((obs, oldVal, newVal) -> {
@@ -88,7 +89,7 @@ public class CartScreenController {
             cart.removeMedia(media);
             updateTotalCost();
 
-            tblMedia.setItems(cart.getItemsOrdered());
+            tblMedia.refresh();
         }
     }
 
@@ -110,7 +111,6 @@ public class CartScreenController {
     void btnSortTitlePressed(ActionEvent event) {
         cart.sortByTitle();
 
-        tblMedia.setItems(cart.getItemsOrdered());
         tblMedia.refresh();
 
         updateTotalCost();
@@ -121,7 +121,6 @@ public class CartScreenController {
     void btnSortCostPressed(ActionEvent event) {
         cart.sortByCost();
 
-        tblMedia.setItems(cart.getItemsOrdered());
         tblMedia.refresh();
 
         updateTotalCost();
